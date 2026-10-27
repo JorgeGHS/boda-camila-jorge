@@ -162,18 +162,9 @@ button { font: inherit; color: inherit; }
 @keyframes inkIn { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
 
 .announce { background: var(--sky); }
-.announce__inner { display: grid; justify-items: center; gap: 6px; padding-block: 20px 22px; }
-.announce__big {
-  margin: 0;
-  font-family: var(--f-pixel);
-  font-weight: 400;
-  color: var(--olive-ink);
-  font-size: clamp(2rem, 9vw, 3.6rem);
-  text-wrap: balance;
-  line-height: .95;
-  text-align: center;
-  letter-spacing: .01em;
-}
+.announce__inner { display: grid; justify-items: center; gap: 14px; padding-block: 22px 24px; }
+.announce__big { margin: 0; line-height: 0; --s: min(0.3px, 0.068vw); }
+.announce__big img { width: calc(var(--w) * var(--s)); height: auto; }
 
 /* ---------- marco con nombres ---------- */
 .hero { padding-block: 62px 66px; }
@@ -199,7 +190,7 @@ button { font: inherit; color: inherit; }
   color: var(--cream);
 }
 .frame__shape { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.frame__crest { position: absolute; z-index: 1; top: 36px; left: 50%; width: 88px; translate: -50% 0; }
+.frame__crest { position: absolute; z-index: 1; top: 30px; left: 50%; width: 92px; translate: -50% 0; }
 .frame__grid {
   position: relative; z-index: 1;
   display: grid;
@@ -219,7 +210,7 @@ button { font: inherit; color: inherit; }
 .frame__grid > :nth-child(8) { grid-area: p3; }
 .frame__grid > :nth-child(9) { grid-area: p4; }
 .name {
-  margin: 0; text-align: center; min-width: 0; font-family: var(--f-names);
+  margin: 0; text-align: center; min-width: 0; font-family: var(--f-names); container-type: inline-size;
   text-transform: uppercase; letter-spacing: .03em; line-height: 1.7;
   font-size: .74rem;
   overflow-wrap: anywhere;
@@ -227,12 +218,12 @@ button { font: inherit; color: inherit; }
 .name--couple { font-weight: 700; color: #fff8e8; font-size: .8rem; }
 .tag { display: block; font-size: .62rem; letter-spacing: .1em; color: var(--pink); line-height: 1.3; margin-bottom: .35em; font-weight: 400; }
 .strip {
-  margin: 0; align-self: stretch; position: relative; min-height: 100%;
+  margin: 0; align-self: center; position: relative;
   background: #f4f0e6; padding: 3px;
   box-shadow: 0 10px 22px rgba(30,10,8,.35);
   transform: rotate(-1deg);
 }
-.strip img { position: absolute; inset: 3px; width: calc(100% - 6px); height: calc(100% - 6px); object-fit: cover; object-position: 50% 50%; }
+.strip img { position: static; width: 100%; height: auto; }
 .rabbit { justify-self: center; width: min(100%, 84px); }
 @media all {
   .rabbit--l { animation: hop 1.4s ease-in-out infinite; }
@@ -341,7 +332,6 @@ button { font: inherit; color: inherit; }
 .events__time { font-size: .74rem; color: var(--brown); font-weight: 700; }
 .events__what { font-family: var(--f-display); font-size: 1.18rem; font-weight: 600; line-height: 1.25; }
 .events__note { font-size: .82rem; color: var(--muted); margin-top: 2px; }
-.stitch { position: absolute; right: 14px; top: -34px; width: 74px; transform: rotate(6deg); }
 .pill {
   justify-self: start; margin: 0; background: var(--maroon); color: var(--cream);
   padding: 6px 14px; border-radius: 999px; font-size: .72rem; transform: rotate(-2deg);
@@ -675,13 +665,13 @@ button { font: inherit; color: inherit; }
   .btn:hover { transform: rotate(-2deg) scale(1.04); }
   .monogram { width: 80px; }
   .announce__inner { display: flex; justify-content: space-around; align-items: center; padding-block: 30px; }
-  .announce__big { font-size: clamp(2.6rem, 4.6vw, 3.8rem); }
+  .announce__big { --s: min(0.3px, 0.026vw); }
 
   .hero { padding-block: 70px 80px; }
   .ornaments img { width: 40px; }
   .ornaments img:nth-child(n+5):nth-child(-n+8) { display: block; }
   .frame { padding: 150px 6% 70px; }
-  .frame__crest { top: 52px; width: 120px; }
+  .frame__crest { top: 40px; width: 140px; }
   .frame__grid { grid-template-columns: minmax(0, 1fr) 124px minmax(0, 1fr); column-gap: 26px; row-gap: 18px; }
   .name { font-size: .92rem; letter-spacing: .1em; line-height: 2; }
   .name--couple { font-size: .95rem; }
@@ -775,3 +765,33 @@ button { font: inherit; color: inherit; }
   .flag--from, .flag--to { width: 72px; height: 61px; }
   .flag--to { bottom: 6%; }
 }
+
+/* ---------- Textos del Canva como imagen ---------- */
+.name__img { display: block; margin-inline: auto; height: auto;
+  /* misma escala para todos los nombres: el más ancho (804) ocupa la columna; tope en tamaño 1:4 */
+  width: min(calc(var(--w) * 0.27px), calc(var(--w) / 804 * 100cqw)); }
+.name .tag { margin-bottom: .6em; }
+
+/* ---------- Cuenta atrás con dígitos modulares (estilo HK Modular) ---------- */
+.countdown { --u: min(4.4vw, 17px); }
+.countdown__days { display: flex; justify-content: center; gap: calc(var(--u) * .5); height: calc(var(--u) * 5); color: var(--olive); }
+.countdown__days svg { width: calc(var(--u) * 5); height: calc(var(--u) * 5); fill: currentColor; fill-rule: evenodd; overflow: visible; }
+.countdown__label { display: block; width: calc(var(--u) * 12.16); height: auto; margin: calc(var(--u) * .8) auto 0; }
+@media (min-width: 760px) { .countdown { --u: min(1.9vw, 20px); } }
+@media all { .countdown__days svg.tick { animation: digitpop .5s cubic-bezier(.3,1.7,.5,1); } }
+@keyframes digitpop { 0% { transform: translateY(-14%) scale(.9); } 100% { transform: none; } }
+
+/* ---------- Punto de cruz con flor y bordado (como en el Canva) ---------- */
+.stitch { position: absolute; right: 10px; top: -46px; width: 104px; height: 120px; transform: rotate(4deg); }
+.stitch img { position: absolute; height: auto; }
+.stitch__card { left: 22px; top: 34px; width: 62px; }
+.stitch__flower { left: 0; top: 0; width: 46px; transform-origin: 50% 100%; }
+.stitch__lace { left: 74px; top: 66px; width: 30px; }
+@media all { .stitch__flower { animation: sway 4s ease-in-out infinite; } }
+
+/* ---------- Cactus y agave ---------- */
+.cactus-agave { width: 150px; transform-origin: 50% 100%; }
+@media all { .cactus-agave { animation: sway 5s ease-in-out infinite; } }
+@media (min-width: 760px) { .cactus-agave { width: 220px; } }
+
+.name--parent:nth-child(n+8) { margin-top: 10px; }

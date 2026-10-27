@@ -23,10 +23,24 @@
   /* ---------- Cuenta atrás ---------- */
   var target = new Date(cfg.fechaBoda || "2027-11-06T12:30:00-06:00").getTime();
   var elD = $("#cdDays"), elH = $("#cdH"), elM = $("#cdM"), elS = $("#cdS");
+  // Dígitos dibujados en una retícula de 5x5 módulos, como el "365" del Canva (HK Modular)
+  var DIGITS = {"0": "M0 1A1 1 0 0 1 1 0L4 0A1 1 0 0 1 5 1L5 4A1 1 0 0 1 4 5L1 5A1 1 0 0 1 0 4ZM1 1L1 4L4 4L4 1Z", "1": "M1 0L2 0A1 1 0 0 1 3 1L3 4L4 4L4 5L1 5L1 4L2 4L2 1L1 1Z", "2": "M0 0L4 0A1 1 0 0 1 5 1L5 2A1 1 0 0 1 4 3L1 3L1 4L5 4L5 5L0 5L0 3A1 1 0 0 1 1 2L4 2L4 1L0 1Z", "3": "M0 0L4 0A1 1 0 0 1 5 1L5 2A0.5 0.5 0 0 1 4.5 2.5L4.5 2.5L4.5 2.5A0.5 0.5 0 0 1 5 3L5 4A1 1 0 0 1 4 5L0 5L0 4L4 4L4 3L0 3L0 2L4 2L4 1L0 1Z", "4": "M0 0L1 0L1 2L4 2L4 0L5 0L5 5L4 5L4 3L1 3A1 1 0 0 1 0 2Z", "5": "M0 0L5 0L5 1L1 1L1 2L4 2A1 1 0 0 1 5 3L5 4A1 1 0 0 1 4 5L0 5L0 4L4 4L4 3L0 3Z", "6": "M0 1A1 1 0 0 1 1 0L5 0L5 1L1 1L1 2L4 2A1 1 0 0 1 5 3L5 4A1 1 0 0 1 4 5L1 5A1 1 0 0 1 0 4ZM1 3L1 4L4 4L4 3Z", "7": "M0 0L4 0A1 1 0 0 1 5 1L5 5L4 5L4 1L0 1Z", "8": "M0 1A1 1 0 0 1 1 0L4 0A1 1 0 0 1 5 1L5 2A0.5 0.5 0 0 1 4.5 2.5L4.5 2.5L4.5 2.5A0.5 0.5 0 0 1 5 3L5 4A1 1 0 0 1 4 5L1 5A1 1 0 0 1 0 4L0 3A0.5 0.5 0 0 1 0.5 2.5L0.5 2.5L0.5 2.5A0.5 0.5 0 0 1 0 2ZM1 1L1 2L4 2L4 1ZM1 3L1 4L4 4L4 3Z", "9": "M5 4A1 1 0 0 1 4 5L0 5L0 4L4 4L4 3L1 3A1 1 0 0 1 0 2L0 1A1 1 0 0 1 1 0L4 0A1 1 0 0 1 5 1ZM4 2L4 1L1 1L1 2Z"};
+  var shownDays = null;
+  function drawDays(n) {
+    var str = String(n);
+    if (str === shownDays) return;
+    var prev = shownDays || "";
+    elD.innerHTML = str.split("").map(function (ch, i) {
+      var changed = prev.length === str.length && prev[i] !== ch;
+      return '<svg viewBox="0 0 5 5" aria-hidden="true"' + (changed ? ' class="tick"' : "") + '><path d="' + DIGITS[ch] + '"/></svg>';
+    }).join("");
+    elD.setAttribute("aria-label", n + (n === 1 ? " día" : " días"));
+    shownDays = str;
+  }
   function pad(n) { return String(n).padStart(2, "0"); }
   function tick() {
     var s = Math.floor(Math.max(0, target - Date.now()) / 1000);
-    elD.textContent = Math.floor(s / 86400);
+    drawDays(Math.floor(s / 86400));
     elH.textContent = pad(Math.floor((s % 86400) / 3600));
     elM.textContent = pad(Math.floor((s % 3600) / 60));
     elS.textContent = pad(s % 60);
