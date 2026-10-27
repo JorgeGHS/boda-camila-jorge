@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>Camila &amp; Jorge · 06.11.2027</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Camila y Jorge se casan el 6 de noviembre de 2027 en la Hacienda San Antonio Hool, Mérida, Yucatán. Programa, cómo llegar, Día de Muertos y confirmación de asistencia.">
@@ -155,17 +156,7 @@
   </div>
 
   <div class="frame">
-    <svg class="frame__shape" viewBox="0 0 600 880" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <filter id="linen" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9 0.35" numOctaves="2" seed="7" result="n"/>
-          <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.1  0 0 0 0 0.02  0 0 0 0 0.02  0 0 0 0.28 0" result="t"/>
-          <feComposite in="t" in2="SourceGraphic" operator="in" result="tt"/>
-          <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="tt"/></feMerge>
-        </filter>
-      </defs>
-      <path filter="url(#linen)" fill="#753130" d="M300 18 C345 18 372 52 372 92 C372 112 400 122 440 122 C500 122 548 150 556 205 C562 245 538 270 552 310 C575 370 588 470 584 560 C580 660 570 760 572 880 L28 880 C30 760 20 660 16 560 C12 470 25 370 48 310 C62 270 38 245 44 205 C52 150 100 122 160 122 C200 122 228 112 228 92 C228 52 255 18 300 18 Z"/>
-    </svg>
+    <div class="frame__bg" aria-hidden="true"></div>
 
     <img width="281" height="187" class="frame__crest" src="assets/img/adorno-oro.webp" alt="">
 
@@ -174,7 +165,7 @@
       <figure class="strip">
         <img width="241" height="1199" src="assets/img/fotos-tira.webp" alt="Tira de fotomatón de Camila y Jorge" fetchpriority="high">
       </figure>
-      <p class="name name--couple"><span class="tag">El novio</span><img width="804" height="459" class="name__img" src="assets/img/txt-jorge.webp" alt="Jorge Ángel García de los Huertos Sánchez" style="--w:804"></p>
+      <p class="name name--couple"><span class="tag">El novio</span><picture><source media="(max-width: 759px)" srcset="assets/img/txt-jorge-m.webp" width="695" height="641"><img width="804" height="459" class="name__img name__img--jorge" src="assets/img/txt-jorge.webp" alt="Jorge Ángel García de los Huertos Sánchez"></picture></p>
 
       <img width="234" height="135" class="rabbit rabbit--l" src="assets/img/conejo-rosa.webp" alt="">
       <img width="225" height="130" class="rabbit rabbit--r" src="assets/img/conejo-azul.webp" alt="">
@@ -240,7 +231,6 @@
       <p class="hacienda__name">Hacienda<br>San Antonio Hool</p>
       <div class="hacienda__pic js-pop">
         <img width="768" height="619" src="assets/img/hacienda-acuarela.webp" alt="Acuarela de la fachada de la Hacienda San Antonio Hool" loading="lazy">
-        <span class="hacienda__welcome">Bienvenidos</span>
       </div>
       <div class="bunnies" aria-hidden="true">
         <img width="225" height="130" class="bunny bunny--1" src="assets/img/conejo-azul.webp" alt="" loading="lazy">
@@ -249,7 +239,7 @@
     </div>
 
     <div class="merida__text">
-      <p>Hemos reservado la hacienda entera para todo el fin de semana. La preboda del viernes y la boda del sábado son allí mismo, a las afueras de Mérida, la ciudad blanca de Yucatán.</p>
+      <p>Hemos reservado la hacienda entera para todo el fin de semana. La preboda del viernes y la boda del sábado son allí mismo, a las afueras de Mérida.</p>
       <a class="btn btn--yellow" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda%20San%20Antonio%20Hool%2C%20M%C3%A9rida%2C%20Yucat%C3%A1n" target="_blank" rel="noopener">Ver en Google Maps ↗</a>
     </div>
   </div>
@@ -273,7 +263,7 @@
         </header>
         <h3 class="day__title">Preboda</h3>
         <ol class="events">
-          <li><span class="events__time mono">Tarde</span><span class="events__what">Pool party &amp; barbacoa en la piscina de la hacienda</span><span class="events__note">Trae bañador y gafas de sol. La hora exacta, muy pronto.</span></li>
+          <li><span class="events__time mono">12:00</span><span class="events__what">Pool party &amp; barbacoa en la piscina de la hacienda</span><span class="events__note">Trae bañador y gafas de sol.</span></li>
         </ol>
       </article>
 
@@ -300,7 +290,7 @@
         </div>
         <h3 class="day__title">Dress code</h3>
         <p class="pill mono">Lo anunciamos pronto</p>
-        <p class="dress__txt">Estamos decidiendo entre <strong>traje</strong> y <strong>lino o guayabera</strong>. Lo que sí sabemos:</p>
+        <p class="dress__txt">Estamos decidiendo entre <strong>traje</strong> o <strong>lino</strong>. Lo que sí sabemos:</p>
         <ul class="checks">
           <li>A principios de noviembre en Mérida se suele estar alrededor de 30&nbsp;°C. Tejidos frescos.</li>
           <li>Todo es en la hacienda, con jardines: mejor tacón ancho que de aguja.</li>
@@ -322,7 +312,7 @@
   <div class="wrap muertos__inner">
     <p class="eyebrow mono">Para quien pueda alargar el viaje</p>
     <h2 class="display display--maroon">Ven antes:<br>Día de Muertos</h2>
-    <p class="muertos__lead">La boda cae el fin de semana después de Día de Muertos. Si puedes cogerte unos días más, te proponemos volar el <strong>viernes 29 de octubre</strong>, vivirlo en México y llegar a Mérida para la preboda.</p>
+    <p class="muertos__lead">La boda cae el fin de semana después de Día de Muertos. Si puedes cogerte unos días más, te proponemos volar el <strong>viernes 29 de octubre</strong>, vivirlo en México y llegar a Mérida para la preboda. Hay vuelos a Ciudad de México a las 18:30 y a las 23:50, así que puedes trabajar ese viernes.</p>
 
     <div class="cal-card">
       <div class="cal-controls">
@@ -344,12 +334,12 @@
           <li data-d="2027-10-26"><b>26</b></li>
           <li data-d="2027-10-27"><b>27</b></li>
           <li data-d="2027-10-28"><b>28</b></li>
-          <li data-d="2027-10-29"><b>29</b><span class="mk mk--fly only-muertos"><img width="626" height="351" src="assets/img/avion.webp" alt=""></span><span class="lbl only-muertos">¡Vuela!</span></li>
+          <li data-d="2027-10-29"><b>29</b><span class="mk mk--fly only-muertos"><img width="626" height="351" src="assets/img/avion.webp" alt=""></span><span class="lbl only-muertos">Vuela por la tarde</span></li>
           <li data-d="2027-10-30"><b>30</b></li>
           <li data-d="2027-10-31"><b>31</b><span class="mk"><svg><use href="#i-marigold"/></svg></span></li>
           <li data-d="2027-11-01" class="hol"><b>1</b><span class="mk"><svg><use href="#i-skull"/></svg></span><span class="lbl">Festivo</span></li>
           <li data-d="2027-11-02"><b>2</b><span class="mk"><svg><use href="#i-marigold"/></svg></span><span class="lbl">Muertos</span></li>
-          <li data-d="2027-11-03"><b>3</b><span class="mk mk--fly only-boda"><img width="626" height="351" src="assets/img/avion.webp" alt=""></span><span class="lbl only-boda">¡Vuela!</span></li>
+          <li data-d="2027-11-03"><b>3</b><span class="mk mk--fly only-boda"><img width="626" height="351" src="assets/img/avion.webp" alt=""></span><span class="lbl only-boda">Vuela por la tarde</span></li>
           <li data-d="2027-11-04"><b>4</b></li>
           <li data-d="2027-11-05"><b>5</b><span class="mk"><svg><use href="#i-float"/></svg></span><span class="lbl">Preboda</span></li>
           <li data-d="2027-11-06" class="wed"><b>6</b><span class="mk"><svg><use href="#i-heart"/></svg></span><span class="lbl">¡Boda!</span></li>
@@ -365,18 +355,17 @@
       </div>
 
       <div class="cal-result" aria-live="polite">
-        <p class="cal-result__big"><span id="tripDays">12</span><small>días en México</small></p>
+        <p class="cal-result__big"><span id="tripDays">12</span><small>días de viaje</small></p>
         <p class="cal-result__plus" aria-hidden="true">con</p>
-        <p class="cal-result__big cal-result__big--vac"><span id="vacDays">6</span><small>días de vacaciones</small></p>
+        <p class="cal-result__big cal-result__big--vac"><span id="vacDays">5</span><small>días de vacaciones</small></p>
       </div>
-      <p class="cal-note" id="calNote">Del viernes 29 de octubre al martes 9 de noviembre, volviendo al trabajo el miércoles 10.</p>
+      <p class="cal-note" id="calNote">Sales el viernes 29 después de trabajar y vuelves al trabajo el miércoles 10.</p>
 
       <ul class="cal-legend">
         <li><span class="sw sw--hol"></span>1 nov, Todos los Santos: festivo en toda España</li>
         <li><span class="sw sw--hol"></span>9 nov, la Almudena: festivo en Madrid capital</li>
         <li><svg class="sw-ic"><use href="#i-marigold"/></svg>31 oct – 2 nov: Día de Muertos</li>
       </ul>
-      <p class="cal-fine">Revisa el calendario laboral de tu comunidad y de tu empresa.</p>
     </div>
 
     <h3 class="muertos__sub">¿Dónde vivirlo?</h3>
@@ -393,16 +382,11 @@
         <p class="place__name">San Miguel de Allende</p>
         <p>Calles empedradas llenas de catrinas y el festival La Calaca.</p>
       </li>
-      <li class="place">
-        <p class="place__name">Pátzcuaro y Janitzio</p>
-        <p>La noche de velas en el lago de Pátzcuaro, en Michoacán.</p>
-      </li>
       <li class="place place--home">
         <p class="place__name">Sin moverte de Mérida</p>
         <p>En Yucatán lo llaman Hanal Pixán: la ciudad celebra el Festival de las Ánimas a finales de octubre, con su Paseo de las Ánimas.</p>
       </li>
     </ul>
-    <p class="cal-fine">Las fechas exactas de desfiles y festivales de 2027 se anuncian más cerca de la fecha.</p>
   </div>
   <svg class="muertos__skull" aria-hidden="true"><use href="#i-skull"/></svg>
 </section>
@@ -536,7 +520,7 @@
   <img width="162" height="406" class="symbols" src="assets/img/simbolos.webp" alt="" loading="lazy">
   <div class="wrap rsvp__inner">
     <h2 class="display display--maroon rsvp__title">¿Vienes?</h2>
-    <p class="rsvp__lead">Confírmanos tu asistencia y la de tus acompañantes.</p>
+    <p class="rsvp__lead">Confírmanos si vienes y si te acompaña alguien.</p>
 
     <form class="card" id="rsvpForm" novalidate>
       <div class="field">
@@ -559,13 +543,18 @@
       </fieldset>
 
       <div class="js-attending">
-        <div class="field">
-          <label for="f-guests">Personas en total (contigo)</label>
-          <div class="stepper">
-            <button type="button" class="stepper__btn" data-step="-1" aria-label="Una persona menos">−</button>
-            <input id="f-guests" name="personas" type="number" min="1" max="10" value="1" inputmode="numeric">
-            <button type="button" class="stepper__btn" data-step="1" aria-label="Una persona más">+</button>
+        <fieldset class="field">
+          <legend>¿Vienes con acompañante?</legend>
+          <div class="choice">
+            <input type="radio" id="f-plus-yes" name="acompanante" value="si">
+            <label for="f-plus-yes">Sí, con +1</label>
+            <input type="radio" id="f-plus-no" name="acompanante" value="no">
+            <label for="f-plus-no">Voy solo/a</label>
           </div>
+        </fieldset>
+        <div class="field js-plusone" hidden>
+          <label for="f-guestnames">Nombre y apellidos de tu acompañante</label>
+          <input id="f-guestnames" name="nombre_acompanante" autocomplete="off">
         </div>
         <fieldset class="field">
           <legend>¿Vienes a la preboda del viernes?</legend>
@@ -576,10 +565,6 @@
             <label for="f-pre-no">No</label>
           </div>
         </fieldset>
-        <div class="field">
-          <label for="f-guestnames">Nombres de tus acompañantes</label>
-          <input id="f-guestnames" name="acompanantes" autocomplete="off">
-        </div>
         <div class="field">
           <label for="f-diet">Alergias o restricciones alimentarias</label>
           <input id="f-diet" name="alergias" autocomplete="off">

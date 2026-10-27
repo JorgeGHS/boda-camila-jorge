@@ -138,8 +138,8 @@
   /* ---------- Calendario Día de Muertos ---------- */
   var muertos = $("#muertos");
   var PLANS = {
-    muertos: { start: "2027-10-29", end: "2027-11-09", note: "Del viernes 29 de octubre al martes 9 de noviembre, volviendo al trabajo el miércoles 10." },
-    boda: { start: "2027-11-03", end: "2027-11-09", note: "Del miércoles 3 al martes 9 de noviembre, volviendo al trabajo el miércoles 10." }
+    muertos: { start: "2027-10-29", end: "2027-11-09", note: "Sales el viernes 29 después de trabajar y vuelves al trabajo el miércoles 10." },
+    boda: { start: "2027-11-03", end: "2027-11-09", note: "Sales el miércoles 3 después de trabajar y vuelves al trabajo el miércoles 10." }
   };
   var state = { plan: "muertos", work: "madrid" };
   function parseD(s) { var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
@@ -158,7 +158,8 @@
       if (inR) {
         trip++;
         var wd = d.getDay();
-        if (wd !== 0 && wd !== 6 && holidays.indexOf(li.dataset.d) === -1) vac++;
+        // el día de salida no cuenta: los vuelos salen por la tarde-noche, después de trabajar
+        if (+d !== +a && wd !== 0 && wd !== 6 && holidays.indexOf(li.dataset.d) === -1) vac++;
       }
     });
     muertos.classList.toggle("plan-muertos", state.plan === "muertos");
@@ -230,16 +231,14 @@
   var form = $("#rsvpForm");
   var attending = $(".js-attending", form);
   var errorEl = $("#formError"), submitBtn = $("#submitBtn"), thanks = $("#thanks"), thanksMsg = $("#thanksMsg");
-  var guests = $("#f-guests");
+  var plusOne = $(".js-plusone", form);
 
   form.addEventListener("change", function (e) {
     if (e.target.name === "asistencia") attending.hidden = e.target.value === "no";
-  });
-  $$(".stepper__btn", form).forEach(function (b) {
-    b.addEventListener("click", function () {
-      var v = Math.min(10, Math.max(1, (parseInt(guests.value, 10) || 1) + Number(b.dataset.step)));
-      guests.value = v;
-    });
+    if (e.target.name === "acompanante") {
+      plusOne.hidden = e.target.value !== "si";
+      if (!plusOne.hidden) $("#f-guestnames").focus();
+    }
   });
 
   function showError(msg, field) {
@@ -250,13 +249,19 @@
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     errorEl.hidden = true;
-    var name = form.elements.nombre, email = form.elements.email;
+    var name = form.elements.nombre, email = form.elements.email, data_plus = "no";
     var choice = form.querySelector('input[name="asistencia"]:checked');
     if (!name.value.trim()) return showError("Escribe tu nombre para saber quién eres.", name);
     if (!/^\S+@\S+\.\S+$/.test(email.value.trim())) return showError("Revisa el email: parece que falta algo.", email);
     if (!choice) return showError("Dinos si podrás venir.", $("#f-yes"));
+    if (choice.value === "si") {
+      var plus = form.querySelector('input[name="acompanante"]:checked');
+      if (!plus) return showError("Dinos si vienes con acompañante.", $("#f-plus-yes"));
+      if (plus.value === "si" && !$("#f-guestnames").value.trim()) return showError("Escribe el nombre de tu acompañante.", $("#f-guestnames"));
+      data_plus = plus.value;
+    }
 
-    var data = {};
+    var data = { personas: choice.value !== "si" ? 0 : (data_plus === "si" ? 2 : 1) };
     new FormData(form).forEach(function (v, k) { data[k] = v; });
     data.enviado = new Date().toISOString();
 

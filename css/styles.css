@@ -185,14 +185,30 @@ button { font: inherit; color: inherit; }
   position: relative;
   width: calc(100% - 24px);
   max-width: 620px;
+  min-height: calc(min(100vw - 24px, 620px) * 1.3);
   margin-inline: auto;
-  padding: 108px 4% 52px;
+  padding: 0;
   color: var(--cream);
+  container-type: inline-size;
+  display: flow-root;
 }
-.frame__shape { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.frame__crest { position: absolute; z-index: 1; top: 30px; left: 50%; width: 92px; translate: -50% 0; }
+/* Forma calcada del Canva en 3 trozos: arriba y abajo mantienen su proporción, el centro se estira */
+.frame__bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: #823837 url("../assets/img/lino.webp") 0 0 / 380px 100px repeat;
+  -webkit-mask:
+    url("../assets/img/marco-arriba.png") center top / 100% auto no-repeat,
+    url("../assets/img/marco-centro.png") center calc(60.1cqw - 1px) / 100% calc(100% - 120.3cqw + 2px) no-repeat,
+    url("../assets/img/marco-abajo.png") center bottom / 100% auto no-repeat;
+  mask:
+    url("../assets/img/marco-arriba.png") center top / 100% auto no-repeat,
+    url("../assets/img/marco-centro.png") center calc(60.1cqw - 1px) / 100% calc(100% - 120.3cqw + 2px) no-repeat,
+    url("../assets/img/marco-abajo.png") center bottom / 100% auto no-repeat;
+}
+.frame__crest { position: absolute; z-index: 1; top: 6cqw; left: 50%; width: 27cqw; translate: -50% 0; }
 .frame__grid {
   position: relative; z-index: 1;
+  margin: 31cqw 8cqw 20cqw;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 68px minmax(0, 1fr);
   grid-template-areas: "c1 s c2" "r1 s r2" "p1 s p2" "p3 s p4";
@@ -447,13 +463,10 @@ button { font: inherit; color: inherit; }
 .guia { padding-block: 70px 170px; }
 .guia .display { font-size: clamp(2.2rem, 10vw, 4.2rem); }
 .guia__lead { margin: 12px 0 22px; font-size: .95rem; max-width: 52ch; }
-.tabs {
-  display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
-  margin: 0 calc(-1 * var(--gr)) 18px calc(-1 * var(--gl)); padding: 4px var(--gr) 6px var(--gl);
-}
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 18px; }
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
-  flex: none; min-height: 46px; padding: 0 18px; border-radius: 999px; cursor: pointer;
+  min-height: 46px; padding: 0 12px; border-radius: 999px; cursor: pointer; min-width: 0;
   border: 2px solid var(--maroon); background: transparent; color: var(--maroon);
   font-family: var(--f-mono); font-weight: 700; font-size: .86rem; white-space: nowrap;
 }
@@ -670,8 +683,6 @@ button { font: inherit; color: inherit; }
   .hero { padding-block: 70px 80px; }
   .ornaments img { width: 40px; }
   .ornaments img:nth-child(n+5):nth-child(-n+8) { display: block; }
-  .frame { padding: 150px 6% 70px; }
-  .frame__crest { top: 40px; width: 140px; }
   .frame__grid { grid-template-columns: minmax(0, 1fr) 124px minmax(0, 1fr); column-gap: 26px; row-gap: 18px; }
   .name { font-size: .92rem; letter-spacing: .1em; line-height: 2; }
   .name--couple { font-size: .95rem; }
@@ -723,7 +734,8 @@ button { font: inherit; color: inherit; }
   .guia { padding-block: 90px 150px; }
   .panel#p-llegar { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 22px; }
   .panel#p-llegar > .panel__intro, .panel#p-llegar > .travel { grid-column: 1 / -1; }
-  .tabs { margin-inline: 0; padding-inline: 0; flex-wrap: wrap; overflow: visible; }
+  .tabs { display: flex; flex-wrap: wrap; }
+  .tab { padding: 0 20px; }
   .tile { width: 150px; }
   .ramito { width: 130px; }
   .spots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -736,8 +748,6 @@ button { font: inherit; color: inherit; }
   .symbols { left: auto; right: 4%; top: 60px; bottom: auto; width: 80px; }
   .rsvp__inner { justify-items: end; padding-right: 60px; }
   .card { padding: 32px; }
-  .js-attending { grid-template-columns: 1fr 1fr; }
-  .js-attending > .field:nth-child(n+3) { grid-column: 1 / -1; }
   .btn--block { width: auto; justify-self: start; }
   .cactus { width: 96px; }
   .agave { width: 140px; }
@@ -767,9 +777,12 @@ button { font: inherit; color: inherit; }
 }
 
 /* ---------- Textos del Canva como imagen ---------- */
+/* misma escala para todos los nombres: el más ancho (--ref) ocupa la columna; tope en tamaño 1:4 */
+.name { --ref: 722; }
 .name__img { display: block; margin-inline: auto; height: auto;
-  /* misma escala para todos los nombres: el más ancho (804) ocupa la columna; tope en tamaño 1:4 */
-  width: min(calc(var(--w) * 0.27px), calc(var(--w) / 804 * 100cqw)); }
+  width: min(calc(var(--w) * 0.27px), calc(var(--w) / var(--ref) * 100cqw)); }
+.name__img--jorge { --w: 695; }
+@media (min-width: 760px) { .name { --ref: 804; } .name__img--jorge { --w: 804; } }
 .name .tag { margin-bottom: .6em; }
 
 /* ---------- Cuenta atrás con dígitos modulares (estilo HK Modular) ---------- */
@@ -794,4 +807,5 @@ button { font: inherit; color: inherit; }
 @media all { .cactus-agave { animation: sway 5s ease-in-out infinite; } }
 @media (min-width: 760px) { .cactus-agave { width: 220px; } }
 
-.name--parent:nth-child(n+8) { margin-top: 10px; }
+.name--parent:nth-child(n+8) { margin-top: 30px; }
+@media (min-width: 760px) { .name--parent:nth-child(n+8) { margin-top: 44px; } }
