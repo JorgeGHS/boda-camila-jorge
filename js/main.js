@@ -2,7 +2,8 @@
   "use strict";
   var cfg = window.BODA || {};
   var guia = window.GUIA || {};
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Las animaciones se muestran siempre, también con "Reducir movimiento" activado en el móvil.
+  var reduce = false;
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
