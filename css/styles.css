@@ -1,6 +1,14 @@
 /* Layout: una invitación larga hecha a mano, pensada primero para el móvil.
    Bandas de color a sangre (oliva → granate → mostaza → rosa → niebla → cielo → naranja → bosque)
    sacadas del Canva de Camila, con dibujos que asoman por los bordes de cada banda. */
+/* ---------- Tipografías de Camila (Canva) ----------
+   Copia los ficheros de fuente en assets/fonts/ con estos nombres (vale .woff2, .otf o .ttf).
+   Mientras no estén, la web usa la alternativa de cada pila. */
+@font-face { font-family: "Brick Sans CJ"; src: url("../assets/fonts/brick-sans.woff2") format("woff2"), url("../assets/fonts/brick-sans.otf") format("opentype"), url("../assets/fonts/brick-sans.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Computer Says No CJ"; src: url("../assets/fonts/computer-says-no.woff2") format("woff2"), url("../assets/fonts/computer-says-no.otf") format("opentype"), url("../assets/fonts/computer-says-no.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "HK Modular CJ"; src: url("../assets/fonts/hk-modular.woff2") format("woff2"), url("../assets/fonts/hk-modular.otf") format("opentype"), url("../assets/fonts/hk-modular.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Perandory CJ"; src: url("../assets/fonts/perandory.woff2") format("woff2"), url("../assets/fonts/perandory.otf") format("opentype"), url("../assets/fonts/perandory.ttf") format("truetype"); font-display: swap; }
+
 :root {
   --olive: #9b9638;
   --olive-ink: #7f7b22;
@@ -22,7 +30,10 @@
   --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --f-chunky: "Fraunces", "Cooper Black", Georgia, serif;
   --f-block: "Bungee", "Arial Black", Impact, sans-serif;
-  --f-pixel: "Jacquard 24", "Courier New", monospace;
+  --f-pixel: "Brick Sans CJ", "NT Brick Sans", "Brick Sans", "Jacquard 24", "Courier New", monospace;
+  --f-titles: "Perandory CJ", "Perandory", "Bodoni Moda", "Didot", Georgia, serif;
+  --f-names: "Computer Says No CJ", "Computer Says No", "Courier Prime", "Courier New", monospace;
+  --f-count: "HK Modular CJ", "HK Modular", "Bungee", "Arial Black", sans-serif;
   --f-mono: "Courier Prime", "Courier New", ui-monospace, monospace;
 
   --gl: max(20px, env(safe-area-inset-left, 0px));
@@ -71,7 +82,7 @@ button { font: inherit; color: inherit; }
 
 .mono { font-family: var(--f-mono); text-transform: uppercase; letter-spacing: .08em; }
 .display {
-  font-family: var(--f-display);
+  font-family: var(--f-titles);
   font-weight: 500;
   text-transform: uppercase;
   font-size: clamp(2.25rem, 9vw, 4.2rem);
@@ -136,7 +147,7 @@ button { font: inherit; color: inherit; }
 @media all { .menu { animation: menuIn .45s cubic-bezier(.2,.9,.3,1); } }
 .menu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; text-align: center; }
 .menu a {
-  font-family: var(--f-display); text-transform: uppercase;
+  font-family: var(--f-titles); text-transform: uppercase;
   font-size: clamp(1.6rem, 7.5vw, 3rem); color: var(--cream); text-decoration: none; line-height: 1.1;
   display: inline-block; padding: .35rem .5rem; transition: color .2s, transform .2s;
 }
@@ -208,7 +219,7 @@ button { font: inherit; color: inherit; }
 .frame__grid > :nth-child(8) { grid-area: p3; }
 .frame__grid > :nth-child(9) { grid-area: p4; }
 .name {
-  margin: 0; text-align: center; min-width: 0;
+  margin: 0; text-align: center; min-width: 0; font-family: var(--f-names);
   text-transform: uppercase; letter-spacing: .03em; line-height: 1.7;
   font-size: .74rem;
   overflow-wrap: anywhere;
@@ -244,10 +255,10 @@ button { font: inherit; color: inherit; }
   background: var(--mist); border-radius: 22px;
   padding: 22px 16px 14px; text-align: center; color: var(--olive);
 }
-.countdown__days { font-family: var(--f-block); font-size: clamp(4.2rem, 24vw, 8rem); line-height: .9; font-variant-numeric: tabular-nums; }
-.countdown__label { font-family: var(--f-block); font-size: clamp(1.8rem, 9vw, 3rem); line-height: 1; margin-top: .15em; }
+.countdown__days { font-family: var(--f-count); font-size: clamp(4.2rem, 24vw, 8rem); line-height: .9; font-variant-numeric: tabular-nums; }
+.countdown__label { font-family: var(--f-count); font-size: clamp(1.8rem, 9vw, 3rem); line-height: 1; margin-top: .15em; }
 .countdown__small { margin-top: 12px; font-size: .82rem; color: var(--olive-ink); font-variant-numeric: tabular-nums; }
-.stars { border: 0; background: none; padding: 0; cursor: pointer; display: block; margin: 6px auto 0; width: min(190px, 70%); }
+.stars { position: relative; border: 0; background: none; padding: 0; cursor: pointer; display: block; margin: 22px auto 0; width: min(190px, 70%); }
 @media all { .stars img { animation: wiggle 2.4s ease-in-out infinite; transform-origin: 50% 90%; } }
 @keyframes wiggle { 25% { transform: rotate(-4deg); } 75% { transform: rotate(4deg); } }
 .photo-grid { margin: 0 auto; width: min(84%, 340px); transform: rotate(3deg); position: relative; }
@@ -269,7 +280,7 @@ button { font: inherit; color: inherit; }
 .merida__title { text-align: center; position: relative; z-index: 2; }
 .hacienda { position: relative; margin-top: 44px; }
 .hacienda__name {
-  font-family: var(--f-display); text-transform: uppercase; color: var(--cream);
+  font-family: var(--f-titles); text-transform: uppercase; color: var(--cream);
   font-size: 1.3rem; line-height: 1.05; margin: 0 0 16px 4px;
   transform: rotate(-8deg); transform-origin: left; display: inline-block; text-align: center;
 }
@@ -615,7 +626,7 @@ button { font: inherit; color: inherit; }
 .contact__lead { margin: 8px 0 0; font-size: .95rem; color: #e4e2c4; }
 .people { width: 100%; margin-top: 10px; display: grid; gap: 14px; text-align: left; }
 .person { border: 1.5px solid rgba(245,239,220,.35); border-radius: 20px; padding: 16px 16px 14px; min-width: 0; background: rgba(58,60,11,.65); }
-.person__name { margin: 0; font-family: var(--f-display); text-transform: uppercase; font-weight: 500; font-size: 1.5rem; line-height: 1.05; color: var(--cream); }
+.person__name { margin: 0; font-family: var(--f-titles); text-transform: uppercase; font-weight: 500; font-size: 1.5rem; line-height: 1.05; color: var(--cream); }
 .person__role { margin: 4px 0 10px; font-size: .7rem; color: var(--pink); }
 .person__lines { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .wa {
@@ -746,3 +757,21 @@ button { font: inherit; color: inherit; }
   .maya-dog { width: clamp(100px, 13vw, 150px); right: 3%; bottom: 14px; }
 }
 
+
+/* ---------- Banderas dibujadas ---------- */
+.flag { position: absolute; width: 48px; height: 40px; overflow: visible; pointer-events: none; transform-origin: 8% 90%; }
+@media all { .flag { animation: flagwave 2.6s ease-in-out infinite; } }
+@keyframes flagwave { 0%, 100% { transform: rotate(-3deg) skewY(0deg); } 50% { transform: rotate(2deg) skewY(-3deg); } }
+.flag--star-mx { left: -6%; top: 6%; width: 40px; height: 34px; }
+.flag--star-es { left: 88%; top: -12%; width: 40px; height: 34px; animation-delay: -1.3s !important; }
+.flag--from { left: 3%; top: 22px; width: 56px; height: 47px; z-index: 1; }
+.flag--to { right: 5%; bottom: -6px; width: 56px; height: 47px; z-index: 1; animation-delay: -1s !important; }
+.flags-pair { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 4px; margin-top: 24px; }
+.flags-pair .flag { position: static; width: 52px; height: 44px; }
+.flags-pair .monogram--small { margin-top: 0; }
+.flag--pair-es { rotate: -14deg; }
+.flag--pair-mx { rotate: 10deg; animation-delay: -1.3s !important; }
+@media (min-width: 760px) {
+  .flag--from, .flag--to { width: 72px; height: 61px; }
+  .flag--to { bottom: 6%; }
+}

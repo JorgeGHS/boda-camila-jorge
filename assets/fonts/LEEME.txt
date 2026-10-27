@@ -1,0 +1,9 @@
+Tipografías de Camila (las mismas que en el Canva).
+Copia aquí los ficheros con exactamente estos nombres (vale .woff2, .otf o .ttf):
+
+  brick-sans.(woff2|otf|ttf)        -> "We are getting married!" y la fecha
+  computer-says-no.(woff2|otf|ttf)  -> nombres de los novios y de los padres
+  hk-modular.(woff2|otf|ttf)        -> cuenta atrás
+  perandory.(woff2|otf|ttf)         -> títulos
+
+Comprueba que la licencia de cada fuente permite usarla en una web.

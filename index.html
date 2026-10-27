@@ -9,21 +9,22 @@
 <meta name="theme-color" content="#9b9638">
 
 <!-- Vista previa al compartir (WhatsApp, iMessage, redes).
-     IMPORTANTE: cambia https://TU-DOMINIO.com por el dominio real cuando lo tengáis.
-     WhatsApp solo muestra la imagen si la URL es absoluta. -->
+     Cuando tengáis dominio propio, cambia "https://jorgeghs.github.io/boda-camila-jorge/"
+     por el dominio en las 4 líneas que lo llevan. WhatsApp necesita la dirección completa. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Camila &amp; Jorge">
 <meta property="og:locale" content="es_ES">
-<meta property="og:url" content="https://TU-DOMINIO.com/">
-<meta property="og:title" content="¡Camila &amp; Jorge se casan! 🐇💍🐇">
-<meta property="og:description" content="6 de noviembre de 2027 · Hacienda San Antonio Hool, Mérida (Yucatán). Todo lo que necesitas para venir: programa, viaje, Día de Muertos y confirmación.">
-<meta property="og:image" content="https://TU-DOMINIO.com/assets/og/og-image.jpg">
+<meta property="og:url" content="https://jorgeghs.github.io/boda-camila-jorge/">
+<meta property="og:title" content="¡Camila &amp; Jorge se casan! 🇪🇸💍🇲🇽">
+<meta property="og:description" content="6 nov 2027 · Hacienda San Antonio Hool, Mérida. ¡Te esperamos!">
+<meta property="og:image" content="https://jorgeghs.github.io/boda-camila-jorge/assets/og/og-image.jpg">
+<meta property="og:image:secure_url" content="https://jorgeghs.github.io/boda-camila-jorge/assets/og/og-image.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Camila y Jorge en un fotomatón, con conejos, un avión y la fecha 06.11.2027 en Mérida, Yucatán">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://TU-DOMINIO.com/assets/og/og-image.jpg">
+<meta name="twitter:image" content="https://jorgeghs.github.io/boda-camila-jorge/assets/og/og-image.jpg">
 
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
@@ -63,6 +64,34 @@
     </symbol>
     <symbol id="i-heart" viewBox="0 0 40 36">
       <path filter="url(#rough)" d="M20 34S3 23 3 12C3 6 7 2 12 2c4 0 7 3 8 6 1-3 4-6 8-6 5 0 9 4 9 10 0 11-17 22-17 22Z" fill="#c8323a"/>
+    </symbol>
+    <clipPath id="flagClip"><path d="M8 5C22 0 38 10 60 4V32C38 38 22 28 8 33Z"/></clipPath>
+    <symbol id="i-flag-es" viewBox="0 0 64 54">
+      <g filter="url(#rough)">
+        <path d="M5 3V53" stroke="#6b4a2a" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="5" cy="3" r="2.6" fill="#f6b90c"/>
+        <g clip-path="url(#flagClip)">
+          <rect x="0" y="0" width="64" height="40" fill="#c8323a"/>
+          <path d="M0 13C22 8 38 18 64 12V24C38 30 22 20 0 25Z" fill="#f6c40c"/>
+          <ellipse cx="18" cy="18.5" rx="3.2" ry="3.8" fill="#b02a2a" stroke="#d99a0b" stroke-width="1.2"/>
+        </g>
+        <path d="M8 5C22 0 38 10 60 4V32C38 38 22 28 8 33Z" fill="none" stroke="#2c1611" stroke-width="1.3"/>
+      </g>
+    </symbol>
+    <symbol id="i-flag-mx" viewBox="0 0 64 54">
+      <g filter="url(#rough)">
+        <path d="M5 3V53" stroke="#6b4a2a" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="5" cy="3" r="2.6" fill="#f6b90c"/>
+        <g clip-path="url(#flagClip)">
+          <rect x="0" y="0" width="64" height="40" fill="#f7f2e4"/>
+          <rect x="0" y="0" width="25" height="40" fill="#1f7a45"/>
+          <rect x="43" y="0" width="21" height="40" fill="#c8323a"/>
+          <path d="M30 21c1-4 6-4 7 0" fill="none" stroke="#1f7a45" stroke-width="1.6"/>
+          <ellipse cx="33.5" cy="17" rx="3.4" ry="2.8" fill="#7a4b22"/>
+          <path d="M33 14.5l3-3" stroke="#7a4b22" stroke-width="1.4"/>
+        </g>
+        <path d="M8 5C22 0 38 10 60 4V32C38 38 22 28 8 33Z" fill="none" stroke="#2c1611" stroke-width="1.3"/>
+      </g>
     </symbol>
     <symbol id="i-picado" viewBox="0 0 60 66">
       <path fill-rule="evenodd" d="M0 0H60V56L55 62 50 56 45 62 40 56 35 62 30 56 25 62 20 56 15 62 10 56 5 62 0 56Z
@@ -187,6 +216,8 @@
         <div class="countdown__small mono"><span id="cdH">00</span>h · <span id="cdM">00</span>m · <span id="cdS">00</span>s</div>
         <button class="stars" id="stars" type="button" aria-label="Lanzar corazones">
           <img width="193" height="118" src="assets/img/estrellas.webp" alt="Dos estrellas cogidas de la mano" loading="lazy">
+          <svg class="flag flag--star-mx" aria-hidden="true"><use href="#i-flag-mx"/></svg>
+          <svg class="flag flag--star-es" aria-hidden="true"><use href="#i-flag-es"/></svg>
         </button>
       </div>
       <figure class="photo-grid js-pop">
@@ -207,6 +238,8 @@
 <section class="band band--maroon merida" id="merida">
   <div class="lace lace--maroon"></div>
   <div class="merida__flight" aria-hidden="true">
+    <svg class="flag flag--from" aria-hidden="true"><use href="#i-flag-es"/></svg>
+    <svg class="flag flag--to" aria-hidden="true"><use href="#i-flag-mx"/></svg>
     <svg class="flight-path" viewBox="0 0 1000 420" preserveAspectRatio="none">
       <path id="flightPath" d="M-20 30 C 120 30, 160 140, 300 160 S 520 60, 640 120 S 860 330, 1020 300" fill="none"/>
     </svg>
@@ -617,7 +650,11 @@
       </article>
     </div>
 
-    <img width="134" height="152" class="monogram monogram--small" src="assets/img/monograma.webp" alt="" loading="lazy">
+<div class="flags-pair" aria-hidden="true">
+      <svg class="flag flag--pair-es"><use href="#i-flag-es"/></svg>
+      <img width="134" height="152" class="monogram monogram--small" src="assets/img/monograma.webp" alt="" loading="lazy">
+      <svg class="flag flag--pair-mx"><use href="#i-flag-mx"/></svg>
+    </div>
     <p class="mono contact__sign">Camila &amp; Jorge · 06.11.2027 · Hacienda San Antonio Hool</p>
   </div>
   <img width="258" height="335" class="maya-dog" src="assets/img/perro-maya.webp" alt="" loading="lazy">
