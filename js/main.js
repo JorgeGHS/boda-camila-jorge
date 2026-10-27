@@ -1,16 +1,19 @@
 (function () {
   "use strict";
   var cfg = window.BODA || {};
+  var guia = window.GUIA || {};
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
   /* ---------- Menú (flor) ---------- */
-  var btn = document.getElementById("menuBtn");
-  var menu = document.getElementById("menu");
+  var btn = $("#menuBtn");
+  var menu = $("#menu");
   function setMenu(open) {
     menu.hidden = !open;
     btn.setAttribute("aria-expanded", String(open));
     btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-    document.body.style.overflow = open ? "hidden" : "";
+    document.documentElement.classList.toggle("menu-open", open);
   }
   btn.addEventListener("click", function () { setMenu(menu.hidden); });
   menu.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
@@ -18,12 +21,10 @@
 
   /* ---------- Cuenta atrás ---------- */
   var target = new Date(cfg.fechaBoda || "2027-11-06T12:30:00-06:00").getTime();
-  var elD = document.getElementById("cdDays"), elH = document.getElementById("cdH"),
-      elM = document.getElementById("cdM"), elS = document.getElementById("cdS");
+  var elD = $("#cdDays"), elH = $("#cdH"), elM = $("#cdM"), elS = $("#cdS");
   function pad(n) { return String(n).padStart(2, "0"); }
   function tick() {
-    var diff = Math.max(0, target - Date.now());
-    var s = Math.floor(diff / 1000);
+    var s = Math.floor(Math.max(0, target - Date.now()) / 1000);
     elD.textContent = Math.floor(s / 86400);
     elH.textContent = pad(Math.floor((s % 86400) / 3600));
     elM.textContent = pad(Math.floor((s % 3600) / 60));
@@ -31,34 +32,37 @@
   }
   tick(); setInterval(tick, 1000);
 
-  /* ---------- Avión siguiendo la línea discontinua ---------- */
-  var path = document.getElementById("flightPath");
-  var plane = document.getElementById("plane");
-  var flight = document.querySelector(".merida__flight");
+  /* ---------- Avión siguiendo la línea discontinua + flor que gira ---------- */
+  var path = $("#flightPath"), plane = $("#plane"), flight = $(".merida__flight");
   var svg = path && path.ownerSVGElement;
+  var pathLen = path ? path.getTotalLength() : 0;
   function flyTo(p) {
-    var len = path.getTotalLength();
-    var a = path.getPointAtLength(len * p);
-    var b = path.getPointAtLength(Math.min(len, len * p + 4));
-    var box = flight.getBoundingClientRect();
-    var sx = box.width / 1000, sy = box.height / 420;
+    var a = path.getPointAtLength(pathLen * p);
+    var b = path.getPointAtLength(Math.min(pathLen, pathLen * p + 4));
+    var w = flight.clientWidth, h = flight.clientHeight;
+    var sx = w / 1000, sy = h / 420;
     var ang = Math.atan2((b.y - a.y) * sy, (b.x - a.x) * sx) * 180 / Math.PI;
-    plane.style.transform = "translate(" + a.x * sx + "px," + a.y * sy + "px) rotate(" + Math.max(-18, Math.min(18, ang * 0.4)) + "deg)";
-    // dibuja la estela solo hasta el avión
-    path.style.strokeDasharray = "10 10";
-    svg.style.clipPath = "inset(0 " + (100 - p * 100) + "% 0 0)";
+    plane.style.transform = "translate(" + (a.x * sx).toFixed(1) + "px," + (a.y * sy).toFixed(1) + "px) rotate(" + Math.max(-18, Math.min(18, ang * 0.4)).toFixed(1) + "deg)";
+    svg.style.clipPath = "inset(0 " + (100 - p * 100).toFixed(1) + "% 0 0)";
   }
+  var ticking = false;
   function onScroll() {
-    if (!path) return;
-    var box = flight.getBoundingClientRect();
-    var vh = window.innerHeight;
-    var p = (vh - box.top) / (vh + box.height * 0.6);
-    flyTo(Math.min(0.98, Math.max(0.1, p)));
-    // la flor del menú gira con el scroll
-    btn.style.setProperty("--spin", (window.scrollY * 0.15) % 360 + "deg");
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      if (path) {
+        var box = flight.getBoundingClientRect(), vh = window.innerHeight;
+        if (box.bottom > -200 && box.top < vh + 200) {
+          var p = (vh - box.top) / (vh + box.height * 0.6);
+          flyTo(Math.min(0.97, Math.max(0.1, p)));
+        }
+      }
+      btn.style.setProperty("--spin", ((window.scrollY * 0.15) % 360).toFixed(1) + "deg");
+    });
   }
   if (path) {
-    if (reduce) { flyTo(0.62); }
+    if (reduce) flyTo(0.6);
     else {
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", onScroll);
@@ -66,18 +70,18 @@
     }
   }
 
-  /* ---------- Pequeño "pop" al aparecer las ilustraciones ---------- */
+  /* ---------- "Pop" al aparecer las ilustraciones ---------- */
   if ("IntersectionObserver" in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add("is-pop"); io.unobserve(en.target); }
       });
     }, { threshold: 0.35 });
-    document.querySelectorAll(".js-pop").forEach(function (el) { io.observe(el); });
+    $$(".js-pop").forEach(function (el) { io.observe(el); });
   }
 
   /* ---------- Confeti y corazones ---------- */
-  var layer = document.getElementById("confetti");
+  var layer = $("#confetti");
   var colors = ["#e36f1c", "#eba79b", "#f6b90c", "#62211d", "#cfe2e6", "#9b9638", "#3d6fa8"];
   function confetti(n) {
     if (reduce) return;
@@ -111,21 +115,116 @@
       setTimeout(function (el) { el.remove(); }.bind(null, h), 1800);
     }
   }
-  document.getElementById("stars").addEventListener("click", function (e) {
+  $("#stars").addEventListener("click", function (e) {
     var r = this.getBoundingClientRect();
     hearts(e.clientX || r.left + r.width / 2, e.clientY || r.top + r.height / 2);
   });
 
+  /* ---------- Calendario Día de Muertos ---------- */
+  var muertos = $("#muertos");
+  var PLANS = {
+    muertos: { start: "2027-10-29", end: "2027-11-09", note: "Del viernes 29 de octubre al martes 9 de noviembre, volviendo al trabajo el miércoles 10." },
+    boda: { start: "2027-11-03", end: "2027-11-09", note: "Del miércoles 3 al martes 9 de noviembre, volviendo al trabajo el miércoles 10." }
+  };
+  var state = { plan: "muertos", work: "madrid" };
+  function parseD(s) { var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+  function renderCal() {
+    var plan = PLANS[state.plan];
+    var a = parseD(plan.start), b = parseD(plan.end);
+    var holidays = ["2027-11-01"];
+    if (state.work === "madrid") holidays.push("2027-11-09");
+    var trip = 0, vac = 0;
+    $$(".cal__grid li").forEach(function (li) {
+      var d = parseD(li.dataset.d);
+      var inR = d >= a && d <= b;
+      li.classList.toggle("in", inR);
+      li.classList.toggle("start", +d === +a);
+      li.classList.toggle("end", +d === +b);
+      if (inR) {
+        trip++;
+        var wd = d.getDay();
+        if (wd !== 0 && wd !== 6 && holidays.indexOf(li.dataset.d) === -1) vac++;
+      }
+    });
+    muertos.classList.toggle("plan-muertos", state.plan === "muertos");
+    muertos.classList.toggle("plan-boda", state.plan === "boda");
+    muertos.classList.toggle("madrid", state.work === "madrid");
+    $("#tripDays").textContent = trip;
+    $("#vacDays").textContent = vac;
+    $("#calNote").textContent = plan.note;
+    $$(".seg__btn[data-plan]").forEach(function (x) { x.setAttribute("aria-pressed", String(x.dataset.plan === state.plan)); });
+    $$(".seg__btn[data-work]").forEach(function (x) { x.setAttribute("aria-pressed", String(x.dataset.work === state.work)); });
+  }
+  $$(".seg__btn").forEach(function (x) {
+    x.addEventListener("click", function () {
+      if (x.dataset.plan) state.plan = x.dataset.plan;
+      if (x.dataset.work) state.work = x.dataset.work;
+      renderCal();
+    });
+  });
+  renderCal();
+
+  /* ---------- Guía: pestañas ---------- */
+  var tabs = $$(".tab");
+  function selectTab(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute("aria-selected", String(on));
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) t.focus();
+    t.scrollIntoView({ block: "nearest", inline: "center", behavior: reduce ? "auto" : "smooth" });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { selectTab(t); });
+    t.addEventListener("keydown", function (e) {
+      var k = e.key, n = null;
+      if (k === "ArrowRight") n = tabs[(i + 1) % tabs.length];
+      if (k === "ArrowLeft") n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if (n) { e.preventDefault(); selectTab(n, true); }
+    });
+  });
+
+  /* ---------- Guía: listas desde js/guia.js ---------- */
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
+  $$("[data-list]").forEach(function (box) {
+    var items = guia[box.dataset.list] || [];
+    if (!items.length) {
+      var soon = el("p", "soon");
+      soon.appendChild(el("span", "soon__stamp mono", "Muy pronto"));
+      soon.appendChild(el("span", "soon__txt", "Estamos haciendo la lista. Vuelve en unas semanas."));
+      box.appendChild(soon);
+      return;
+    }
+    var ul = el("ul", "spots");
+    items.forEach(function (it) {
+      var li = el("li", "spot");
+      var head = el(it.enlace ? "a" : "p", "spot__name", it.nombre);
+      if (it.enlace) { head.href = it.enlace; head.target = "_blank"; head.rel = "noopener"; head.textContent = it.nombre + " ↗"; }
+      li.appendChild(head);
+      if (it.zona) li.appendChild(el("p", "spot__zone mono", it.zona));
+      if (it.nota) li.appendChild(el("p", "spot__note", it.nota));
+      if (it.descuento) li.appendChild(el("p", "spot__deal mono", it.descuento));
+      ul.appendChild(li);
+    });
+    box.appendChild(ul);
+  });
+
   /* ---------- Formulario de asistencia ---------- */
-  var form = document.getElementById("rsvpForm");
-  var attending = form.querySelector(".js-attending");
-  var errorEl = document.getElementById("formError");
-  var submitBtn = document.getElementById("submitBtn");
-  var thanks = document.getElementById("thanks");
-  var thanksMsg = document.getElementById("thanksMsg");
+  var form = $("#rsvpForm");
+  var attending = $(".js-attending", form);
+  var errorEl = $("#formError"), submitBtn = $("#submitBtn"), thanks = $("#thanks"), thanksMsg = $("#thanksMsg");
+  var guests = $("#f-guests");
 
   form.addEventListener("change", function (e) {
     if (e.target.name === "asistencia") attending.hidden = e.target.value === "no";
+  });
+  $$(".stepper__btn", form).forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = Math.min(10, Math.max(1, (parseInt(guests.value, 10) || 1) + Number(b.dataset.step)));
+      guests.value = v;
+    });
   });
 
   function showError(msg, field) {
@@ -140,18 +239,19 @@
     var choice = form.querySelector('input[name="asistencia"]:checked');
     if (!name.value.trim()) return showError("Escribe tu nombre para saber quién eres.", name);
     if (!/^\S+@\S+\.\S+$/.test(email.value.trim())) return showError("Revisa el email: parece que falta algo.", email);
-    if (!choice) return showError("Dinos si podrás venir.", document.getElementById("f-yes"));
+    if (!choice) return showError("Dinos si podrás venir.", $("#f-yes"));
 
     var data = {};
     new FormData(form).forEach(function (v, k) { data[k] = v; });
     data.enviado = new Date().toISOString();
 
     function done() {
-      Array.prototype.forEach.call(form.children, function (el) { if (el !== thanks) el.hidden = true; });
+      Array.prototype.forEach.call(form.children, function (c) { if (c !== thanks) c.hidden = true; });
       thanks.hidden = false;
       thanksMsg.textContent = choice.value === "si"
         ? "¡Qué ilusión! Nos vemos en Mérida, " + name.value.trim().split(" ")[0] + "."
         : "Te echaremos de menos. Gracias por avisarnos.";
+      form.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
       if (choice.value === "si") confetti(120);
     }
 
@@ -165,35 +265,27 @@
       });
   });
 
-  /* "Envíanos una nota" lleva al campo de mensaje */
-  document.querySelector(".note-link").addEventListener("click", function (e) {
-    e.preventDefault();
-    var msg = document.getElementById("f-msg");
-    if (msg.hidden || msg.closest("[hidden]")) { document.getElementById("rsvp").scrollIntoView({ behavior: "smooth" }); return; }
-    msg.scrollIntoView({ behavior: "smooth", block: "center" });
-    setTimeout(function () { msg.focus({ preventScroll: true }); }, 500);
-  });
-  /* ---------- Botones de copiar (IBAN, emails) ---------- */
-  document.querySelectorAll("[data-copy]").forEach(function (b) {
+  /* ---------- Botones de copiar (IBAN, emails...) ---------- */
+  $$("[data-copy]").forEach(function (b) {
+    var label = b.getAttribute("data-copy-label") || b.textContent;
     b.addEventListener("click", function () {
       var text = b.getAttribute("data-copy");
-      var label = b.getAttribute("data-copy-label") || b.textContent;
       function ok() {
         b.textContent = "¡Copiado!"; b.classList.add("is-done");
         setTimeout(function () { b.textContent = label; b.classList.remove("is-done"); }, 1800);
       }
       function fallback() {
-        var el = b.parentElement.querySelector(".iban__num, .person__email");
-        if (!el) return;
-        var r = document.createRange(); r.selectNodeContents(el);
+        var src = b.parentElement.querySelector(".copy-src");
+        if (!src) return;
+        var r = document.createRange(); r.selectNodeContents(src);
         var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
-        b.textContent = "Seleccionado: pulsa copiar";
-        setTimeout(function () { b.textContent = label; }, 2400);
+        b.textContent = "Seleccionado";
+        setTimeout(function () { b.textContent = label; }, 2000);
       }
       try {
         if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(ok, fallback);
         else fallback();
-      } catch (e) { fallback(); }
+      } catch (err) { fallback(); }
     });
   });
 })();
