@@ -125,6 +125,23 @@
 
 <main>
 
+<!-- ============ PORTADA CON FOTO ============ -->
+<section class="cover" aria-label="Camila y Jorge">
+  <picture>
+    <source media="(min-width: 760px) and (min-aspect-ratio: 1/1)" srcset="assets/img/portada-desktop.webp" width="1920" height="1281">
+    <img class="cover__img" src="assets/img/portada-movil.webp" width="1080" height="1595" alt="Camila y Jorge frente al mar" fetchpriority="high">
+  </picture>
+  <div class="cover__text">
+    <p class="cover__names">Camila <span>&amp;</span> Jorge</p>
+    <p class="cover__date mono">06.11.2027 · Mérida, Yucatán</p>
+  </div>
+  <a class="cover__scroll" href="#inicio" aria-label="Ver los detalles de la boda">
+    <img src="assets/img/conejo-rosa.webp" alt="" width="234" height="135">
+    <span class="mono">Desliza</span>
+    <svg viewBox="0 0 24 14" aria-hidden="true"><path d="M2 2l10 10L22 2" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
 <!-- ============ PORTADA ============ -->
 <header class="band band--olive top" id="inicio">
   <div class="wrap top__inner">
@@ -184,7 +201,6 @@
     <div class="invite__grid">
       <p class="mono invite__a">¡Estamos deseando celebrarlo contigo!</p>
       <img width="260" height="280" class="badge-papaya js-pop" src="assets/img/papaya.webp" alt="" loading="lazy">
-      <p class="mono invite__b">Nos encantaría celebrar este día tan especial contigo. Eres y serás parte de nuestra historia de amor.</p>
     </div>
 
     <h2 class="display">Nos vemos en</h2>
@@ -208,7 +224,6 @@
     <div class="reception">
       <h2 class="display">Recepción</h2>
       <img width="794" height="529" class="reception__img js-pop" src="assets/img/hacienda-crayon.webp" alt="Dibujo a ceras de la hacienda con las iniciales C &amp; J" loading="lazy">
-      <p class="mono reception__txt">Misa, cóctel, comida y fiesta: todo en la hacienda, sin moverse de allí.</p>
     </div>
   </div>
 </section>
@@ -239,7 +254,6 @@
     </div>
 
     <div class="merida__text">
-      <p>Hemos reservado la hacienda entera para todo el fin de semana. La preboda del viernes y la boda del sábado son allí mismo, a las afueras de Mérida.</p>
       <a class="btn btn--yellow" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda%20San%20Antonio%20Hool%2C%20M%C3%A9rida%2C%20Yucat%C3%A1n" target="_blank" rel="noopener">Ver en Google Maps ↗</a>
     </div>
   </div>
@@ -516,11 +530,15 @@
 
 <!-- ============ RSVP ============ -->
 <section class="band band--orange rsvp" id="rsvp">
-  <img width="602" height="815" class="lobster" src="assets/img/langosta.webp" alt="" loading="lazy">
   <img width="162" height="406" class="symbols" src="assets/img/simbolos.webp" alt="" loading="lazy">
   <div class="wrap rsvp__inner">
-    <h2 class="display display--maroon rsvp__title">¿Vienes?</h2>
-    <p class="rsvp__lead">Confírmanos si vienes y si te acompaña alguien.</p>
+    <div class="rsvp__head">
+      <img width="602" height="815" class="lobster" src="assets/img/langosta.webp" alt="" loading="lazy">
+      <div class="rsvp__titles">
+        <h2 class="display display--maroon rsvp__title">¿Vienes?</h2>
+        <p class="rsvp__lead">Confírmanos si vienes y si te acompaña alguien.</p>
+      </div>
+    </div>
 
     <form class="card" id="rsvpForm" novalidate>
       <div class="field">
