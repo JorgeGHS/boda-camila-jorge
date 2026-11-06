@@ -1,17 +1,16 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="no-anim">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.className="anim";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <title>Camila &amp; Jorge · 06.11.2027</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Camila y Jorge se casan el 6 de noviembre de 2027 en la Hacienda San Antonio Hool, Mérida, Yucatán. Programa, cómo llegar, Día de Muertos y confirmación de asistencia.">
-<meta name="theme-color" content="#9b9638">
+<meta name="description" content="Camila y Jorge se casan el 6 de noviembre de 2027 en la Hacienda San Antonio Hool, Mérida, Yucatán.">
+<meta name="theme-color" content="#839595">
 
-<!-- Vista previa al compartir (WhatsApp, iMessage, redes).
-     Cuando tengáis dominio propio, cambia "https://jorgeghs.github.io/boda-camila-jorge/"
-     por el dominio en las 4 líneas que lo llevan. WhatsApp necesita la dirección completa. -->
+<!-- Vista previa al compartir (WhatsApp, iMessage...). Si cambiáis de dominio, cambiad la dirección en las 4 líneas que la llevan. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Camila &amp; Jorge">
 <meta property="og:locale" content="es_ES">
@@ -23,7 +22,7 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Camila y Jorge en un fotomatón, con conejos, un avión y la fecha 06.11.2027 en Mérida, Yucatán">
+<meta property="og:image:alt" content="Sobre verde con la invitación de Camila y Jorge: 6 de noviembre de 2027, Mérida, Yucatán">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jorgeghs.github.io/boda-camila-jorge/assets/og/og-image.jpg">
 
@@ -31,12 +30,10 @@
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Bungee&family=Courier+Prime:wght@400;700&family=Fraunces:opsz,wght,SOFT@9..144,700;9..144,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-<!-- ============ ICONOS DIBUJADOS (reutilizables) ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter>
@@ -94,245 +91,227 @@
         <path d="M8 5C22 0 38 10 60 4V32C38 38 22 28 8 33Z" fill="none" stroke="#2c1611" stroke-width="1.3"/>
       </g>
     </symbol>
-    <symbol id="i-picado" viewBox="0 0 60 66">
-      <path fill-rule="evenodd" d="M0 0H60V56L55 62 50 56 45 62 40 56 35 62 30 56 25 62 20 56 15 62 10 56 5 62 0 56Z
-        M30 12L39 26 30 40 21 26Z
-        M30 20L34 26 30 32 26 26Z
-        M10 9a3.2 3.2 0 1 0 6.4 0a3.2 3.2 0 1 0-6.4 0Z M43.6 9a3.2 3.2 0 1 0 6.4 0a3.2 3.2 0 1 0-6.4 0Z
-        M8 24L13 30 8 36 3 30Z M52 24L57 30 52 36 47 30Z
-        M9 46L13 41 17 46Z M19 46L23 41 27 46Z M33 46L37 41 41 46Z M43 46L47 41 51 46Z"/>
-    </symbol>
   </defs>
 </svg>
+
 
 <!-- ============ MENÚ (flor) ============ -->
 <button class="flower-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
   <img width="113" height="106" src="assets/img/flor-logo.webp" alt="">
 </button>
-
 <nav class="menu" id="menu" hidden>
   <ul>
     <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#programa">El fin de semana</a></li>
+    <li><a href="#itinerario">Itinerario</a></li>
+    <li><a href="#dress-code">Dress code</a></li>
     <li><a href="#muertos">Día de Muertos</a></li>
-    <li><a href="#guia">Cómo llegar y guía</a></li>
+    <li><a href="#guia">Cómo llegar</a></li>
     <li><a href="#regalo">Regalo</a></li>
-    <li><a href="#rsvp">Confirma tu asistencia</a></li>
+    <li><a href="#rsvp">RSVP</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <img width="234" height="135" class="menu-rabbit" src="assets/img/conejo-rosa.webp" alt="">
+  <img width="393" height="225" class="menu__rabbit" src="assets/img/conejo-rosa.webp" alt="">
 </nav>
 
 <main>
 
-<!-- ============ PORTADA CON FOTO ============ -->
-<section class="cover" aria-label="Camila y Jorge">
-  <picture>
-    <source media="(min-width: 760px) and (min-aspect-ratio: 1/1)" srcset="assets/img/portada-desktop.webp" width="1920" height="1281">
-    <img class="cover__img" src="assets/img/portada-movil.webp" width="1080" height="1595" alt="Camila y Jorge frente al mar" fetchpriority="high">
-  </picture>
-  <div class="cover__text">
-    <p class="cover__names">Camila <span>&amp;</span> Jorge</p>
-    <p class="cover__date mono">06.11.2027 · Mérida, Yucatán</p>
-  </div>
-  <a class="cover__scroll" href="#inicio" aria-label="Ver los detalles de la boda">
-    <img src="assets/img/conejo-rosa.webp" alt="" width="234" height="135">
-    <span class="mono">Desliza</span>
-    <svg viewBox="0 0 24 14" aria-hidden="true"><path d="M2 2l10 10L22 2" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-</section>
+<!-- ============ 1. PORTADA: SOBRE ============ -->
+<section class="hero" id="inicio">
+  <img width="160" height="144" class="hero__orn hero__orn--l" src="assets/img/orn-rosa.webp" alt="" data-float>
+  <img width="160" height="144" class="hero__orn hero__orn--r" src="assets/img/orn-granate.webp" alt="" data-float>
+  <div class="hero__track" id="heroTrack">
+    <div class="hero__pin">
+  <h1 class="hero__script"><img width="1400" height="427" class="script-draw" src="assets/img/script-nombres.webp" alt="Camila &amp; Jorge" fetchpriority="high"></h1>
 
-<!-- ============ PORTADA ============ -->
-<header class="band band--olive top" id="inicio">
-  <div class="wrap top__inner">
-    <img width="124" height="139" class="monogram" src="assets/img/monograma.webp" alt="J y C entrelazadas" fetchpriority="high">
-  </div>
-</header>
-
-<section class="announce" aria-label="Fecha y lugar">
-  <div class="lace"></div>
-  <div class="wrap announce__inner">
-    <h1 class="announce__big"><img width="1193" height="294" src="assets/img/txt-married.webp" alt="We are getting married!" style="--w:1193" fetchpriority="high"></h1>
-    <p class="announce__big"><img width="1153" height="282" src="assets/img/txt-fecha.webp" alt="06.11.2027, Mérida, Yucatán" style="--w:1153" fetchpriority="high"></p>
-  </div>
-  <div class="lace lace--flip"></div>
-</section>
-
-<section class="band band--olive hero">
-  <div class="ornaments" aria-hidden="true">
-    <img width="91" height="50" src="assets/img/orn-rizo.webp" style="--x:5%;--y:3%" alt="">
-    <img width="85" height="101" src="assets/img/orn-flor.webp" style="--x:24%;--y:1%" alt="">
-    <img width="91" height="50" src="assets/img/orn-rizo.webp" style="--x:68%;--y:1%" alt="" class="flip">
-    <img width="85" height="101" src="assets/img/orn-flor.webp" style="--x:88%;--y:3%" alt="">
-    <img width="85" height="101" src="assets/img/orn-flor.webp" style="--x:3%;--y:30%" alt="">
-    <img width="91" height="50" src="assets/img/orn-rizo.webp" style="--x:92%;--y:30%" alt="" class="flip">
-    <img width="91" height="50" src="assets/img/orn-rizo.webp" style="--x:2%;--y:58%" alt="">
-    <img width="85" height="101" src="assets/img/orn-flor.webp" style="--x:92%;--y:58%" alt="">
-    <img width="85" height="101" src="assets/img/orn-flor.webp" style="--x:3%;--y:88%" alt="">
-    <img width="91" height="50" src="assets/img/orn-rizo.webp" style="--x:91%;--y:88%" alt="" class="flip">
-  </div>
-
-  <div class="frame">
-    <div class="frame__bg" aria-hidden="true"></div>
-
-    <img width="281" height="187" class="frame__crest" src="assets/img/adorno-oro.webp" alt="">
-
-    <div class="frame__grid">
-      <p class="name name--couple"><span class="tag">La novia</span><img width="531" height="438" class="name__img" src="assets/img/txt-camila.webp" alt="Camila Escalante Heckmuller" style="--w:531"></p>
-      <figure class="strip">
-        <img width="241" height="1199" src="assets/img/fotos-tira.webp" alt="Tira de fotomatón de Camila y Jorge" fetchpriority="high">
-      </figure>
-      <p class="name name--couple"><span class="tag">El novio</span><picture><source media="(max-width: 759px)" srcset="assets/img/txt-jorge-m.webp" width="695" height="641"><img width="804" height="459" class="name__img name__img--jorge" src="assets/img/txt-jorge.webp" alt="Jorge Ángel García de los Huertos Sánchez"></picture></p>
-
-      <img width="234" height="135" class="rabbit rabbit--l" src="assets/img/conejo-rosa.webp" alt="">
-      <img width="225" height="130" class="rabbit rabbit--r" src="assets/img/conejo-azul.webp" alt="">
-
-      <p class="name name--parent"><span class="tag">Sus padres</span><img width="477" height="438" class="name__img" src="assets/img/txt-antonio.webp" alt="Antonio Escalante Bourillon" style="--w:477"></p>
-      <p class="name name--parent"><span class="tag">Sus padres</span><img width="722" height="438" class="name__img" src="assets/img/txt-pedro.webp" alt="Pedro García de los Huertos Vidal" style="--w:722"></p>
-      <p class="name name--parent"><img width="531" height="437" class="name__img" src="assets/img/txt-yleana.webp" alt="Yleana Heckmuller Cervantes" style="--w:531"></p>
-      <p class="name name--parent"><img width="695" height="458" class="name__img" src="assets/img/txt-maria.webp" alt="María Dolores Sánchez Rodríguez" style="--w:695"></p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ INVITACIÓN + CUENTA ATRÁS ============ -->
-<section class="band band--olive invite" id="cuenta-atras">
-  <div class="wrap">
-    <div class="invite__grid">
-      <p class="mono invite__a">¡Estamos deseando celebrarlo contigo!</p>
-      <img width="260" height="280" class="badge-papaya js-pop" src="assets/img/papaya.webp" alt="" loading="lazy">
-    </div>
-
-    <h2 class="display">Nos vemos en</h2>
-    <div class="count-row">
-      <div class="countdown" aria-live="off">
-        <div class="countdown__days" id="cdDays" role="img" aria-label="375 días"></div>
-        <img width="1143" height="266" class="countdown__label" src="assets/img/txt-days.webp" alt="">
-        <div class="countdown__small mono"><span id="cdH">00</span>h · <span id="cdM">00</span>m · <span id="cdS">00</span>s</div>
-        <button class="stars" id="stars" type="button" aria-label="Lanzar corazones">
-          <img width="361" height="220" src="assets/img/estrellas.webp" alt="Dos estrellas cogidas de la mano" loading="lazy">
-          <svg class="flag flag--star-mx" aria-hidden="true"><use href="#i-flag-mx"/></svg>
-          <svg class="flag flag--star-es" aria-hidden="true"><use href="#i-flag-es"/></svg>
-        </button>
-      </div>
-      <figure class="photo-grid js-pop">
-        <img width="124" height="214" class="lazo" src="assets/img/lazo.webp" alt="" loading="lazy">
-        <img width="559" height="664" src="assets/img/fotos-grid.webp" alt="Cuatro fotos de fotomatón de Camila y Jorge" loading="lazy">
-      </figure>
-    </div>
-
-    <div class="reception">
-      <h2 class="display">Recepción</h2>
-      <img width="794" height="529" class="reception__img js-pop" src="assets/img/hacienda-crayon.webp" alt="Dibujo a ceras de la hacienda con las iniciales C &amp; J" loading="lazy">
-    </div>
-  </div>
-</section>
-
-<!-- ============ MÉRIDA ============ -->
-<section class="band band--maroon merida" id="merida">
-  <div class="lace lace--maroon"></div>
-  <div class="merida__flight" aria-hidden="true">
-    <svg class="flag flag--from" aria-hidden="true"><use href="#i-flag-es"/></svg>
-    <svg class="flag flag--to" aria-hidden="true"><use href="#i-flag-mx"/></svg>
-    <svg class="flight-path" viewBox="0 0 1000 420" preserveAspectRatio="none">
-      <path id="flightPath" d="M-20 30 C 120 30, 160 140, 300 160 S 520 60, 640 120 S 860 330, 1020 300" fill="none"/>
-    </svg>
-    <img width="626" height="351" class="plane" id="plane" src="assets/img/avion.webp" alt="" loading="lazy">
-  </div>
-  <div class="wrap merida__inner">
-    <h2 class="display display--yellow merida__title">Mérida, Yucatán</h2>
-
-    <div class="hacienda">
-      <p class="hacienda__name">Hacienda<br>San Antonio Hool</p>
-      <div class="hacienda__pic js-pop">
-        <img width="768" height="619" src="assets/img/hacienda-acuarela.webp" alt="Acuarela de la fachada de la Hacienda San Antonio Hool" loading="lazy">
-      </div>
-      <div class="bunnies" aria-hidden="true">
-        <img width="225" height="130" class="bunny bunny--1" src="assets/img/conejo-azul.webp" alt="" loading="lazy">
-        <img width="234" height="135" class="bunny bunny--2" src="assets/img/conejo-rosa.webp" alt="" loading="lazy">
+  <div class="env" id="env">
+    <div class="env__back2" aria-hidden="true"></div>
+    <div class="env__back" aria-hidden="true"></div>
+    <div class="env__flap" aria-hidden="true"></div>
+    <div class="env__cardclip">
+      <div class="env__card" id="envCard">
+        <p class="env__place">Mérida, Yucatán</p>
+        <p class="date-big"><span class="date-big__six">6</span><span class="date-big__de">de</span><span class="date-big__mes">noviembre</span><span class="date-big__year">2027</span></p>
       </div>
     </div>
+    <div class="env__front" aria-hidden="true">
+      <svg viewBox="0 0 100 80" preserveAspectRatio="none"><path d="M0 0 L50 46 L100 0" fill="none" stroke="rgba(40,32,8,.28)" stroke-width=".5"/><path d="M0 80 L50 46 L100 80" fill="none" stroke="rgba(40,32,8,.18)" stroke-width=".4"/></svg>
+    </div>
+    <img width="277" height="353" class="env__seal" src="assets/img/sello-cj.webp" alt="">
+  </div>
+  <p class="hero__hint" id="heroHint"><span>Desliza para abrir</span><svg viewBox="0 0 24 14" aria-hidden="true"><path d="M2 2l10 10L22 2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
 
-    <div class="merida__text">
-      <a class="btn btn--yellow" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda%20San%20Antonio%20Hool%2C%20M%C3%A9rida%2C%20Yucat%C3%A1n" target="_blank" rel="noopener">Ver en Google Maps ↗</a>
     </div>
   </div>
-  <img width="323" height="415" class="corn" src="assets/img/elote.webp" alt="" loading="lazy">
+
+  <div class="band-shrimp" aria-hidden="true">
+    <span class="note note--1">♪</span><span class="note note--2">♫</span><span class="note note--3">♪</span><span class="note note--4">♬</span>
+    <img width="163" height="278" class="shrimp shrimp--1" src="assets/img/gamba-1.webp" alt="">
+    <img width="166" height="247" class="shrimp shrimp--2" src="assets/img/gamba-2.webp" alt="">
+    <img width="198" height="337" class="shrimp shrimp--3" src="assets/img/gamba-3.webp" alt="">
+  </div>
 </section>
 
-<!-- ============ PROGRAMA + DRESS CODE ============ -->
-<section class="band band--brown programa" id="programa">
-  <div class="wrap">
-    <div class="programa__head">
-      <img width="251" height="281" class="dragonfly" src="assets/img/libelula.webp" alt="" loading="lazy">
-      <h2 class="display display--cream">El fin de semana</h2>
+<!-- ============ 2. WITH LOVE ============ -->
+<section class="withlove" aria-label="With love">
+  <p class="withlove__w" data-from="left">With</p>
+  <img width="222" height="283" class="withlove__seal" src="assets/img/sello-cj-oscuro.webp" alt="" data-spin>
+  <p class="withlove__l" data-from="right">Love</p>
+</section>
+<div class="strip-brown" aria-hidden="true"></div>
+
+<!-- ============ 3. NOSOTROS ============ -->
+<section class="olive us" id="nosotros">
+  <img width="1400" height="427" class="us__script script-draw" src="assets/img/script-nombres.webp" alt="Camila &amp; Jorge">
+  <figure class="polaroid" data-drop>
+    <img width="820" height="1164" class="polaroid__img" src="assets/img/fotomaton.webp" alt="Fotos de fotomatón de Camila y Jorge" loading="lazy">
+    <img width="95" height="158" class="polaroid__knot" src="assets/img/lazo.webp" alt="">
+  </figure>
+  <p class="us__tagline" data-reveal>Nos casamos en Mérida, Yucatán.<br>¡Estamos deseando celebrarlo contigo!</p>
+  <img width="443" height="270" class="us__stars" src="assets/img/estrellas.webp" alt="" data-reveal data-hop>
+  <nav class="us__links" aria-label="Secciones">
+    <a href="#itinerario" data-reveal>Itinerario</a>
+    <a href="#dress-code" data-reveal>Detalles</a>
+  </nav>
+
+  <!-- tarjeta granate con la fecha -->
+  <div class="datecard" data-zoom>
+    <img width="1080" height="1339" class="datecard__bg" src="assets/img/marco-granate.webp" alt="" loading="lazy">
+    <p class="date-big date-big--pink"><span class="date-big__six">6</span><span class="date-big__de">de</span><span class="date-big__mes">noviembre</span><span class="date-big__year">2027</span><span class="date-big__place">Mérida, Yucatán</span></p>
+  </div>
+
+  <!-- cuenta atrás -->
+  <div class="count" id="cuenta-atras">
+    <img width="112" height="104" class="pix pix--mariposa" src="assets/img/pix-mariposa.webp" alt="" data-float>
+    <img width="93" height="155" class="pix pix--flor" src="assets/img/pix-flor.webp" alt="" data-float>
+    <img width="380" height="227" class="pix pix--casa" src="assets/img/pix-casa.webp" alt="" data-float>
+    <img width="520" height="655" class="count__plane" id="plane" src="assets/img/avion.webp" alt="">
+    <a class="count__rsvp" href="#rsvp">RSVP</a>
+    <div class="flips" id="flips" role="img" aria-label="Faltan 366 días"></div>
+    <p class="count__dias">Días</p>
+    <p class="count__hms"><span id="cdH">00</span>H · <span id="cdM">00</span>M · <span id="cdS">00</span>S</p>
+  </div>
+
+  <!-- nombres -->
+  <div class="names" data-reveal>
+    <img width="242" height="730" class="names__flower" src="assets/img/flor-blanca.webp" alt="" loading="lazy">
+    <p class="names__main names__main--a">Camila<br>Escalante Heckmuller</p>
+    <p class="names__main names__main--b">Jorge Ángel<br>García de los Huertos Sánchez</p>
+    <div class="names__lob"><img width="239" height="350" class="names__lobster" src="assets/img/langosta.webp" alt="" loading="lazy" data-crawl></div>
+    <div class="names__par names__par--a">
+      <p class="names__tag">Mis papás</p>
+      <p class="names__p">Antonio<br>Escalante Bourillon</p>
+      <p class="names__p">Yleana<br>Heckmuller Cervantes</p>
     </div>
-
-    <div class="days">
-      <article class="day">
-        <header class="day__head">
-          <p class="day__num">5</p>
-          <p class="day__dow">Viernes</p>
-          <p class="day__month mono">nov 2027</p>
-        </header>
-        <h3 class="day__title">Preboda</h3>
-        <ol class="events">
-          <li><span class="events__time mono">12:00</span><span class="events__what">Pool party &amp; barbacoa en la piscina de la hacienda</span><span class="events__note">Trae bañador y gafas de sol.</span></li>
-        </ol>
-      </article>
-
-      <article class="day day--main">
-        <header class="day__head">
-          <p class="day__num">6</p>
-          <p class="day__dow">Sábado</p>
-          <p class="day__month mono">nov 2027</p>
-        </header>
-        <h3 class="day__title">¡La boda!</h3>
-        <ol class="events">
-          <li><span class="events__time mono">12:30</span><span class="events__what">Misa en la hacienda</span></li>
-          <li><span class="events__time mono">Después</span><span class="events__what">Cóctel</span></li>
-          <li><span class="events__time mono">Luego</span><span class="events__what">Comida</span></li>
-          <li><span class="events__time mono">Hasta tarde</span><span class="events__what">Fiesta</span><span class="events__note">Hasta que el cuerpo aguante.</span></li>
-        </ol>
-      </article>
-
-      <article class="day day--dress" id="dress-code">
-        <div class="stitch" aria-hidden="true">
-          <img width="200" height="287" class="stitch__flower" src="assets/img/flor-roja.webp" alt="" loading="lazy">
-          <img width="259" height="324" class="stitch__card" src="assets/img/punto-cruz.webp" alt="" loading="lazy">
-          <img width="135" height="192" class="stitch__lace" src="assets/img/bordado-verde.webp" alt="" loading="lazy">
-        </div>
-        <h3 class="day__title">Dress code</h3>
-        <p class="pill mono">Lo anunciamos pronto</p>
-        <p class="dress__txt">Estamos decidiendo entre <strong>traje</strong> o <strong>lino</strong>. Lo que sí sabemos:</p>
-        <ul class="checks">
-          <li>A principios de noviembre en Mérida se suele estar alrededor de 30&nbsp;°C. Tejidos frescos.</li>
-          <li>Todo es en la hacienda, con jardines: mejor tacón ancho que de aguja.</li>
-          <li>Para la preboda: bañador.</li>
-        </ul>
-      </article>
+    <div class="names__par names__par--b">
+      <p class="names__tag">Mis padres</p>
+      <p class="names__p">Pedro<br>García de los Huertos Vidal</p>
+      <p class="names__p">María Dolores<br>Sánchez Rodríguez</p>
     </div>
   </div>
-  <img width="629" height="468" class="mamey js-pop" src="assets/img/flores-mamey.webp" alt="" loading="lazy">
-  <img width="119" height="209" class="oval" src="assets/img/ovalo-azul.webp" alt="" loading="lazy">
+
+  <!-- ============ 4. ITINERARIO ============ -->
+  <div class="itin" id="itinerario">
+    <div class="itin__head">
+      <h2 class="itin__title" data-reveal>San Antonio<br>Hool <span>Recepción</span></h2>
+      <div class="rabbits" aria-hidden="true">
+        <img width="393" height="225" class="rabbit rabbit--a" src="assets/img/conejo-azul.webp" alt="">
+        <img width="393" height="225" class="rabbit rabbit--b" src="assets/img/conejo-rosa.webp" alt="">
+      </div>
+    </div>
+    <ol class="pills">
+      <li class="pill" data-pill>
+        <span class="pill__day">Jueves 4</span><span class="pill__time">20H</span><span class="pill__what">TBC</span><span class="pill__tag">ESP <svg class="mini-flag"><use href="#i-flag-es"/></svg><br>× MEX <svg class="mini-flag"><use href="#i-flag-mx"/></svg></span>
+      </li>
+      <li class="pill" data-pill>
+        <span class="pill__day">Viernes 5</span><span class="pill__time">12H</span><span class="pill__what">Rompehielos</span><span class="pill__tag">Pool<br>party</span>
+      </li>
+      <li class="pill__note" data-reveal>Barbacoa en la piscina de la hacienda. Trae bañador.</li>
+      <li class="pill" data-pill>
+        <span class="pill__day">Sábado 6</span><span class="pill__time">12:30H</span><span class="pill__what">Ceremonia</span><span class="pill__tag">Party<br>time</span>
+      </li>
+      <li class="pill__note" data-reveal>Misa en la hacienda y después cóctel, comida y fiesta.</li>
+    </ol>
+  </div>
+
+  <!-- ============ 5. HACIENDA ============ -->
+  <div class="haci">
+    <img width="726" height="90" class="haci__title" src="assets/img/titulo-hacienda.webp" alt="Hacienda San Antonio Hool" data-reveal>
+    <div class="haci__scene">
+      <img width="463" height="650" class="haci__lilies haci__lilies--l" src="assets/img/lirios.webp" alt="" loading="lazy">
+      <img width="463" height="650" class="haci__lilies haci__lilies--r" src="assets/img/lirios.webp" alt="" loading="lazy">
+      <img width="1000" height="671" class="haci__house" src="assets/img/hacienda.webp" alt="Dibujo de la Hacienda San Antonio Hool" loading="lazy" data-rise>
+      <img width="214" height="410" class="mari mari--1" src="assets/img/mariachi-trompeta.webp" alt="" loading="lazy">
+      <img width="166" height="353" class="mari mari--2" src="assets/img/mariachi-sax.webp" alt="" loading="lazy">
+      <img width="173" height="444" class="mari mari--3" src="assets/img/mariachi-tuba.webp" alt="" loading="lazy">
+    </div>
+    <a class="ulink" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda%20San%20Antonio%20Hool%2C%20M%C3%A9rida%2C%20Yucat%C3%A1n" target="_blank" rel="noopener" data-reveal>Google Maps</a>
+  </div>
+
+  <!-- ============ 6. DRESS CODE ============ -->
+  <div class="dress" id="dress-code">
+    <h2 class="dress__title"><img width="800" height="332" class="script-draw" src="assets/img/script-dress.webp" alt="Dress"><span data-from="right">Code</span></h2>
+    <img width="479" height="567" class="dress__legs" src="assets/img/piernas.webp" alt="" loading="lazy">
+    <p class="dress__theme" data-reveal>Nature in<br>the wild</p>
+    <div class="acc" aria-hidden="true">
+      <img width="157" height="235" class="acc__i acc__i--peine" src="assets/img/peine.webp" alt="" loading="lazy">
+      <img width="295" height="350" class="acc__i acc__i--perfume" src="assets/img/perfume.webp" alt="" loading="lazy">
+      <img width="293" height="357" class="acc__i acc__i--gafas" src="assets/img/gafas.webp" alt="" loading="lazy">
+      <img width="360" height="348" class="acc__i acc__i--bicho" src="assets/img/perfume-bicho.webp" alt="" loading="lazy">
+      <img width="238" height="418" class="acc__i acc__i--zapatos" src="assets/img/zapatos.webp" alt="" loading="lazy">
+    </div>
+    <div class="party" aria-hidden="true">
+      <img width="220" height="248" class="party__ball" src="assets/img/bola-disco.webp" alt="" loading="lazy">
+      <img width="814" height="413" class="party__people" src="assets/img/bailarines.webp" alt="" loading="lazy">
+    </div>
+
+    <h3 class="dress__sub" data-reveal>Mujeres <em>formal</em></h3>
+    <div class="dresses" aria-label="Inspiración de vestidos">
+      <div class="dresses__row" id="dressRow">
+        <img width="186" height="774" src="assets/img/vestido-1.webp" alt="Vestido largo de lentejuelas naranja" loading="lazy">
+        <img width="300" height="612" src="assets/img/vestido-2.webp" alt="Vestido largo plisado amarillo" loading="lazy">
+        <img width="258" height="738" src="assets/img/vestido-3.webp" alt="Vestido largo color berenjena" loading="lazy">
+        <img width="300" height="615" src="assets/img/vestido-4.webp" alt="Vestido largo de lentejuelas granate" loading="lazy">
+        <img width="257" height="683" src="assets/img/vestido-5.webp" alt="Vestido largo plateado plisado" loading="lazy">
+        <img width="201" height="748" src="assets/img/vestido-6.webp" alt="Vestido largo rosa con flecos" loading="lazy">
+        <img width="260" height="786" src="assets/img/vestido-7.webp" alt="Vestido largo de lentejuelas gris" loading="lazy">
+      </div>
+    </div>
+
+    <h3 class="dress__sub" data-reveal>Hombres <em>traje de lino</em></h3>
+    <div class="men">
+      <img width="720" height="900" class="men__a" src="assets/img/hombres-1.webp" alt="Grupo de hombres con trajes de lino claros" loading="lazy" data-from="left">
+      <img width="663" height="828" class="men__b" src="assets/img/hombres-2.webp" alt="Hombres con americanas de lino rosa, verde y azul" loading="lazy" data-from="right">
+    </div>
+  </div>
+
+  <!-- coche -->
+  <div class="road" aria-hidden="true">
+    <img width="234" height="353" class="road__flower" src="assets/img/flor-colgante.webp" alt="" loading="lazy">
+    <figure class="road__pola"><img width="520" height="390" src="assets/img/polaroid-foto.webp" alt="" loading="lazy"></figure>
+    <div class="car" id="car">
+      <img width="348" height="398" class="car__cow" src="assets/img/vaca.webp" alt="" loading="lazy">
+      <img width="420" height="413" class="car__bird" src="assets/img/paloma.webp" alt="" loading="lazy">
+      <img width="900" height="276" class="car__body" src="assets/img/coche.webp" alt="" loading="lazy">
+    </div>
+  </div>
 </section>
 
-<!-- ============ DÍA DE MUERTOS ============ -->
+<!-- ============ 7. DÍA DE MUERTOS ============ -->
 <section class="muertos plan-muertos madrid" id="muertos">
-  <div class="picado" aria-hidden="true">
-    <svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg><svg><use href="#i-picado"/></svg>
+  <div class="garland" aria-hidden="true">
+    <img width="290" height="219" src="assets/img/picado-1.webp" alt=""><img width="290" height="219" src="assets/img/picado-2.webp" alt=""><img width="290" height="219" src="assets/img/picado-3.webp" alt=""><img width="290" height="219" src="assets/img/picado-4.webp" alt=""><img width="290" height="219" src="assets/img/picado-5.webp" alt="">
   </div>
-
-  <div class="wrap muertos__inner">
-    <p class="eyebrow mono">Para quien pueda alargar el viaje</p>
-    <h2 class="display display--maroon">Ven antes:<br>Día de Muertos</h2>
-    <p class="muertos__lead">La boda cae el fin de semana después de Día de Muertos. Si puedes cogerte unos días más, te proponemos volar el <strong>viernes 29 de octubre</strong>, vivirlo en México y llegar a Mérida para la preboda. Hay vuelos a Ciudad de México a las 18:30 y a las 23:50, así que puedes trabajar ese viernes.</p>
-    <figure class="altar">
-      <img class="altar__img js-pop" src="assets/img/altar-muertos.webp" width="1100" height="842" alt="Altar de muertos dibujado por Camila, con calaverita, papel picado, cempasúchil y ofrendas" loading="lazy">
-      <figcaption class="altar__cap mono">Altar de muertos · dibujo de Camila</figcaption>
+  <div class="stage">
+    <p class="eyebrow" data-reveal>Para quien pueda alargar el viaje</p>
+    <h2 class="h2 h2--merlot" data-reveal>Ven antes:<br><em>Día de Muertos</em></h2>
+    <p class="lead" data-reveal>La boda cae el fin de semana después de Día de Muertos. Si puedes cogerte unos días más, te proponemos volar el <strong>viernes 29 de octubre</strong>, vivirlo en México y llegar a Mérida para la preboda. Hay vuelos a Ciudad de México a las 18:30 y a las 23:50, así que puedes trabajar ese viernes.</p>
+    <figure class="altar" data-zoom>
+      <img width="300" height="444" class="muertos__mask" src="assets/img/mascara.webp" alt="" loading="lazy" data-swing>
+      <img width="1100" height="842" src="assets/img/altar-muertos.webp" alt="Altar de muertos dibujado por Camila, con calaverita, papel picado, cempasúchil y ofrendas" loading="lazy">
+      <figcaption>Altar de muertos · dibujo de Camila</figcaption>
     </figure>
 
-    <div class="cal-card">
+    <div class="cal-card" data-reveal>
       <div class="cal-controls">
         <div class="seg" role="group" aria-label="Elige plan">
           <button type="button" class="seg__btn" data-plan="muertos" aria-pressed="true">Plan Día de Muertos</button>
@@ -343,7 +322,6 @@
           <button type="button" class="seg__btn" data-work="fuera" aria-pressed="false">Fuera de Madrid</button>
         </div>
       </div>
-
       <p class="cal__caption">Octubre · Noviembre 2027</p>
       <div class="cal" aria-label="Calendario del 25 de octubre al 14 de noviembre de 2027">
         <div class="cal__dow" aria-hidden="true"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
@@ -352,13 +330,13 @@
           <li data-d="2027-10-26"><b>26</b></li>
           <li data-d="2027-10-27"><b>27</b></li>
           <li data-d="2027-10-28"><b>28</b></li>
-          <li data-d="2027-10-29"><b>29</b><span class="mk mk--fly only-muertos"><img width="626" height="351" src="assets/img/avion.webp" alt=""></span><span class="lbl only-muertos">Vuela por la tarde</span></li>
+          <li data-d="2027-10-29"><b>29</b><span class="mk mk--fly only-muertos"><img width="520" height="655" src="assets/img/avion.webp" alt=""></span><span class="lbl only-muertos">Vuela por la tarde</span></li>
           <li data-d="2027-10-30"><b>30</b></li>
           <li data-d="2027-10-31"><b>31</b><span class="mk"><svg><use href="#i-marigold"/></svg></span></li>
           <li data-d="2027-11-01" class="hol"><b>1</b><span class="mk"><svg><use href="#i-skull"/></svg></span><span class="lbl">Festivo</span></li>
           <li data-d="2027-11-02"><b>2</b><span class="mk"><svg><use href="#i-marigold"/></svg></span><span class="lbl">Muertos</span></li>
-          <li data-d="2027-11-03"><b>3</b><span class="mk mk--fly only-boda"><img width="626" height="351" src="assets/img/avion.webp" alt=""></span><span class="lbl only-boda">Vuela por la tarde</span></li>
-          <li data-d="2027-11-04"><b>4</b></li>
+          <li data-d="2027-11-03"><b>3</b><span class="mk mk--fly only-boda"><img width="520" height="655" src="assets/img/avion.webp" alt=""></span><span class="lbl only-boda">Vuela por la tarde</span></li>
+          <li data-d="2027-11-04"><b>4</b><span class="mk"><svg><use href="#i-flag-mx"/></svg></span><span class="lbl">Cena</span></li>
           <li data-d="2027-11-05"><b>5</b><span class="mk"><svg><use href="#i-float"/></svg></span><span class="lbl">Preboda</span></li>
           <li data-d="2027-11-06" class="wed"><b>6</b><span class="mk"><svg><use href="#i-heart"/></svg></span><span class="lbl">¡Boda!</span></li>
           <li data-d="2027-11-07"><b>7</b></li>
@@ -371,49 +349,37 @@
           <li data-d="2027-11-14"><b>14</b></li>
         </ol>
       </div>
-
       <div class="cal-result" aria-live="polite">
         <p class="cal-result__big"><span id="tripDays">12</span><small>días de viaje</small></p>
         <p class="cal-result__plus" aria-hidden="true">con</p>
         <p class="cal-result__big cal-result__big--vac"><span id="vacDays">5</span><small>días de vacaciones</small></p>
       </div>
       <p class="cal-note" id="calNote">Sales el viernes 29 después de trabajar y vuelves al trabajo el miércoles 10.</p>
-
       <ul class="cal-legend">
-        <li><span class="sw sw--hol"></span>1 nov, Todos los Santos: festivo en toda España</li>
-        <li><span class="sw sw--hol"></span>9 nov, la Almudena: festivo en Madrid capital</li>
+        <li><span class="sw"></span>1 nov, Todos los Santos: festivo en toda España</li>
+        <li><span class="sw"></span>9 nov, la Almudena: festivo en Madrid capital</li>
         <li><svg class="sw-ic"><use href="#i-marigold"/></svg>31 oct – 2 nov: Día de Muertos</li>
       </ul>
     </div>
 
-    <h3 class="muertos__sub">¿Dónde vivirlo?</h3>
+    <h3 class="h3" data-reveal>¿Dónde vivirlo?</h3>
     <ul class="places">
-      <li class="place">
-        <p class="place__name">Ciudad de México</p>
-        <p>Altares enormes, el desfile por el centro y las noches en Mixquic. Además, es la escala natural para luego volar a Mérida.</p>
-      </li>
-      <li class="place">
-        <p class="place__name">Oaxaca</p>
-        <p>Comparsas por la calle, panteones iluminados con velas y mucho mezcal.</p>
-      </li>
-      <li class="place">
-        <p class="place__name">San Miguel de Allende</p>
-        <p>Calles empedradas llenas de catrinas y el festival La Calaca.</p>
-      </li>
-      <li class="place place--home">
-        <p class="place__name">Sin moverte de Mérida</p>
-        <p>En Yucatán lo llaman Hanal Pixán: la ciudad celebra el Festival de las Ánimas a finales de octubre, con su Paseo de las Ánimas.</p>
-      </li>
+      <li class="place" data-reveal><p class="place__name">Ciudad de México</p><p>Altares enormes, el desfile por el centro y las noches en Mixquic. Además, es la escala natural para luego volar a Mérida.</p></li>
+      <li class="place" data-reveal><p class="place__name">Oaxaca</p><p>Comparsas por la calle, panteones iluminados con velas y mucho mezcal.</p></li>
+      <li class="place" data-reveal><p class="place__name">San Miguel de Allende</p><p>Calles empedradas llenas de catrinas y el festival La Calaca.</p></li>
+      <li class="place place--home" data-reveal><p class="place__name">Sin moverte de Mérida</p><p>En Yucatán lo llaman Hanal Pixán: la ciudad celebra el Festival de las Ánimas a finales de octubre, con su Paseo de las Ánimas.</p></li>
     </ul>
   </div>
+  <img width="360" height="605" class="muertos__pinata" src="assets/img/pinata.webp" alt="" loading="lazy" data-swing>
 </section>
 
-<!-- ============ GUÍA ============ -->
-<section class="band band--mist guia" id="guia">
-  <img width="166" height="142" class="tile js-pop" src="assets/img/azulejo.webp" alt="" loading="lazy">
-  <div class="wrap">
-    <h2 class="display display--maroon">Guía para venir</h2>
-    <p class="guia__lead">Para los que venís de España: cómo llegar, dónde dormir, dónde comer y qué hacer en Mérida.</p>
+<!-- ============ 8. GUÍA ============ -->
+<section class="guia" id="guia">
+  <img width="400" height="303" class="guia__corn" src="assets/img/elote.webp" alt="" loading="lazy" data-float>
+  <img width="399" height="365" class="guia__flower" src="assets/img/flor-roja.webp" alt="" loading="lazy" data-swing>
+  <div class="stage">
+    <h2 class="h2 h2--merlot" data-reveal>Cómo llegar<br><em>y guía</em></h2>
+    <p class="lead" data-reveal>Para los que venís de España: cómo llegar, dónde dormir, dónde comer y qué hacer en Mérida.</p>
 
     <div class="tabs" role="tablist" aria-label="Guía">
       <button class="tab" role="tab" id="tab-llegar" aria-controls="p-llegar" aria-selected="true">Cómo llegar</button>
@@ -422,128 +388,99 @@
       <button class="tab" role="tab" id="tab-hacer" aria-controls="p-hacer" aria-selected="false" tabindex="-1">Qué hacer</button>
     </div>
 
-    <!-- Cómo llegar -->
     <div class="panel" role="tabpanel" id="p-llegar" aria-labelledby="tab-llegar">
       <p class="panel__intro">No hay vuelo directo de Madrid a Mérida. Estas son las tres formas más cómodas de llegar:</p>
-
-      <article class="route">
-        <p class="route__tag mono">Opción 1</p>
+      <article class="route" data-reveal>
+        <p class="route__tag">Opción 1</p>
         <h3 class="route__title">Vía Ciudad de México</h3>
         <p class="route__line" aria-label="Madrid, Ciudad de México, Mérida"><b>MAD</b><span class="route__dash"><i>✈︎</i></span><b>MEX</b><span class="route__dash"><i>✈︎</i></span><b>MID</b></p>
         <ul class="route__steps">
-          <li><span class="mono">≈ 12 h</span>Vuelo directo Madrid – Ciudad de México.</li>
-          <li><span class="mono">≈ 2 h</span>Vuelo nacional Ciudad de México – Mérida.</li>
+          <li><span>≈ 12 h</span>Vuelo directo Madrid – Ciudad de México.</li>
+          <li><span>≈ 2 h</span>Vuelo nacional Ciudad de México – Mérida.</li>
         </ul>
         <p class="route__tip">La mejor si vienes antes a Día de Muertos en CDMX, Oaxaca o San Miguel.</p>
       </article>
-
-      <article class="route">
-        <p class="route__tag mono">Opción 2</p>
+      <article class="route" data-reveal>
+        <p class="route__tag">Opción 2</p>
         <h3 class="route__title">Vía Cancún</h3>
-        <p class="route__line" aria-label="Madrid, Cancún, Mérida"><b>MAD</b><span class="route__dash"><i>✈︎</i></span><b>CUN</b><span class="route__dash"><i class="mono" style="font-size:.62rem">coche / tren</i></span><b>MID</b></p>
+        <p class="route__line" aria-label="Madrid, Cancún, Mérida"><b>MAD</b><span class="route__dash"><i>✈︎</i></span><b>CUN</b><span class="route__dash"><i class="route__small">coche / tren</i></span><b>MID</b></p>
         <ul class="route__steps">
-          <li><span class="mono">≈ 11 h</span>Vuelo directo Madrid – Cancún.</li>
-          <li><span class="mono">≈ 4 h</span><span><strong>Coche de alquiler</strong> por la autopista 180D (de peaje), unos 310&nbsp;km.</span></li>
-          <li><span class="mono">≈ 3 h 30</span><span><strong>Tren Maya</strong> de la estación Cancún Aeropuerto a Mérida Teya, con paradas en Valladolid y Chichén Itzá. La estación de Teya está a las afueras de Mérida: necesitarás taxi.</span></li>
+          <li><span>≈ 11 h</span>Vuelo directo Madrid – Cancún.</li>
+          <li><span>≈ 4 h</span><span><strong>Coche de alquiler</strong> por la autopista 180D (de peaje), unos 310&nbsp;km.</span></li>
+          <li><span>≈ 3 h 30</span><span><strong>Tren Maya</strong> de la estación Cancún Aeropuerto a Mérida Teya, con paradas en Valladolid y Chichén Itzá. La estación de Teya está a las afueras de Mérida: necesitarás taxi.</span></li>
         </ul>
         <p class="route__tip">Perfecta para sumar unos días de playa o cenotes. Compra los billetes del tren con antelación en la web oficial del Tren Maya.</p>
       </article>
-
-      <article class="route">
-        <p class="route__tag mono">Opción 3</p>
+      <article class="route" data-reveal>
+        <p class="route__tag">Opción 3</p>
         <h3 class="route__title">Vía Miami</h3>
         <p class="route__line" aria-label="Madrid, Miami, Mérida"><b>MAD</b><span class="route__dash"><i>✈︎</i></span><b>MIA</b><span class="route__dash"><i>✈︎</i></span><b>MID</b></p>
         <ul class="route__steps">
-          <li><span class="mono">≈ 10 h</span>Vuelo Madrid – Miami.</li>
-          <li><span class="mono">≈ 2 h 20</span>Vuelo directo Miami – Mérida (American Airlines o Viva).</li>
+          <li><span>≈ 10 h</span>Vuelo Madrid – Miami.</li>
+          <li><span>≈ 2 h 20</span>Vuelo directo Miami – Mérida (American Airlines o Viva).</li>
         </ul>
         <p class="route__tip route__tip--warn"><strong>Ojo:</strong> aunque solo hagas escala en Miami, para pasar por Estados Unidos necesitas la autorización ESTA (españoles) o visado.</p>
       </article>
-
       <dl class="travel">
-        <div><dt class="mono">Papeles</dt><dd>Pasaporte en vigor. Los españoles no necesitan visado para entrar en México como turistas.</dd></div>
-        <div><dt class="mono">Aeropuerto</dt><dd>Mérida (MID), a las afueras de la ciudad.</dd></div>
+        <div><dt>Papeles</dt><dd>Pasaporte en vigor. Los españoles no necesitan visado para entrar en México como turistas.</dd></div>
+        <div><dt>Aeropuerto</dt><dd>Mérida (MID), a las afueras de la ciudad.</dd></div>
       </dl>
     </div>
-
-    <!-- Dormir -->
     <div class="panel" role="tabpanel" id="p-dormir" aria-labelledby="tab-dormir" hidden>
       <p class="panel__intro">Estamos preparando una lista de hoteles en Mérida, algunos con descuento para invitados.</p>
       <div class="list" data-list="hoteles"></div>
     </div>
-
-    <!-- Comer -->
     <div class="panel" role="tabpanel" id="p-comer" aria-labelledby="tab-comer" hidden>
       <p class="panel__intro">Nuestros sitios favoritos de Mérida, del desayuno a la cena.</p>
-      <h3 class="list__title">Desayuno</h3>
-      <div class="list" data-list="desayuno"></div>
-      <h3 class="list__title">Comida</h3>
-      <div class="list" data-list="comida"></div>
-      <h3 class="list__title">Cena</h3>
-      <div class="list" data-list="cena"></div>
+      <h3 class="list__title">Desayuno</h3><div class="list" data-list="desayuno"></div>
+      <h3 class="list__title">Comida</h3><div class="list" data-list="comida"></div>
+      <h3 class="list__title">Cena</h3><div class="list" data-list="cena"></div>
     </div>
-
-    <!-- Qué hacer -->
     <div class="panel" role="tabpanel" id="p-hacer" aria-labelledby="tab-hacer" hidden>
       <p class="panel__intro">Planes en Mérida y alrededores para los días antes y después de la boda.</p>
       <div class="list" data-list="planes"></div>
     </div>
   </div>
-  <img width="276" height="261" class="ramito js-pop" src="assets/img/ramito.webp" alt="" loading="lazy">
 </section>
 
-<!-- ============ REGALO ============ -->
+<!-- ============ 9. REGALO ============ -->
 <section class="gift" id="regalo">
-  <div class="lace lace--mist"></div>
-  <div class="wrap gift__inner">
-    <div class="gift__orns" aria-hidden="true">
-      <img width="91" height="50" src="assets/img/orn-rizo.webp" alt="">
-      <img width="85" height="101" src="assets/img/orn-flor.webp" alt="">
-      <img width="91" height="50" src="assets/img/orn-rizo.webp" alt="" class="flip">
-    </div>
-    <h2 class="display display--olive">Regalo</h2>
-    <p class="gift__lead">Lo más importante para nosotros es que vengas. Si además quieres hacernos un regalo, esta es nuestra cuenta:</p>
-
-    <div class="iban">
-      <p class="iban__label mono">IBAN · cuenta en euros</p>
+  <div class="stage">
+    <img width="339" height="336" class="gift__fish" src="assets/img/peces-brindis.webp" alt="" loading="lazy" data-clink>
+    <h2 class="h2 h2--pink" data-reveal>Regalo</h2>
+    <p class="lead lead--pink" data-reveal>Lo más importante para nosotros es que vengas. Si además quieres hacernos un regalo, esta es nuestra cuenta:</p>
+    <div class="iban" data-reveal>
+      <p class="iban__label">IBAN · cuenta en euros</p>
       <p class="iban__num copy-src">ES16 1583 0001 1191 1286 0199</p>
       <button class="copy-btn" type="button" data-copy="ES16 1583 0001 1191 1286 0199" data-copy-label="Copiar IBAN">Copiar IBAN</button>
     </div>
-
     <dl class="gift__details">
-      <div><dt class="mono">Beneficiario</dt><dd><span class="copy-src">J G d L H Sanchez &amp; C Escalante</span> <button class="copy-btn copy-btn--mini" type="button" data-copy="J G d L H Sanchez &amp; C Escalante" data-copy-label="Copiar">Copiar</button></dd></div>
-      <div><dt class="mono">BIC / SWIFT</dt><dd><span class="copy-src">REVOESM2</span> <button class="copy-btn copy-btn--mini" type="button" data-copy="REVOESM2" data-copy-label="Copiar">Copiar</button></dd></div>
-      <div><dt class="mono">Concepto</dt><dd>Tu nombre</dd></div>
+      <div><dt>Beneficiario</dt><dd><span class="copy-src">J G d L H Sanchez &amp; C Escalante</span> <button class="copy-btn copy-btn--mini" type="button" data-copy="J G d L H Sanchez &amp; C Escalante" data-copy-label="Copiar">Copiar</button></dd></div>
+      <div><dt>BIC / SWIFT</dt><dd><span class="copy-src">REVOESM2</span> <button class="copy-btn copy-btn--mini" type="button" data-copy="REVOESM2" data-copy-label="Copiar">Copiar</button></dd></div>
+      <div><dt>Concepto</dt><dd>Tu nombre</dd></div>
     </dl>
-
     <details class="intl">
       <summary>Si transfieres desde México u otro país</summary>
       <div class="intl__body">
         <p>Haz una transferencia internacional (SWIFT) en euros con estos datos:</p>
         <dl class="gift__details">
-          <div><dt class="mono">Banco</dt><dd>Revolut Bank UAB</dd></div>
-          <div><dt class="mono">Dirección</dt><dd>Calle Príncipe de Vergara 132, 4ª planta, 28002 Madrid, España</dd></div>
-          <div><dt class="mono">BIC banco corresponsal</dt><dd><span class="copy-src">CHASDEFX</span> <button class="copy-btn copy-btn--mini" type="button" data-copy="CHASDEFX" data-copy-label="Copiar">Copiar</button></dd></div>
+          <div><dt>Banco</dt><dd>Revolut Bank UAB</dd></div>
+          <div><dt>Dirección</dt><dd>Calle Príncipe de Vergara 132, 4ª planta, 28002 Madrid, España</dd></div>
+          <div><dt>BIC banco corresponsal</dt><dd><span class="copy-src">CHASDEFX</span> <button class="copy-btn copy-btn--mini" type="button" data-copy="CHASDEFX" data-copy-label="Copiar">Copiar</button></dd></div>
         </dl>
       </div>
     </details>
   </div>
-  <div class="lace lace--to-orange lace--flip"></div>
 </section>
 
-<!-- ============ RSVP ============ -->
-<section class="band band--orange rsvp" id="rsvp">
-  <img width="162" height="406" class="symbols" src="assets/img/simbolos.webp" alt="" loading="lazy">
-  <div class="wrap rsvp__inner">
-    <div class="rsvp__head">
-      <img width="602" height="815" class="lobster" src="assets/img/langosta.webp" alt="" loading="lazy">
-      <div class="rsvp__titles">
-        <h2 class="display display--maroon rsvp__title">¿Vienes?</h2>
-        <p class="rsvp__lead">Confírmanos si vienes y si te acompaña alguien.</p>
-      </div>
-    </div>
+<!-- ============ 10. RSVP ============ -->
+<section class="rsvp" id="rsvp">
+  <img width="405" height="702" class="rsvp__bottles" src="assets/img/botellas.webp" alt="" loading="lazy" data-float>
+  <div class="stage">
+    <h2 class="h2 h2--cream" data-reveal>¿Vienes?</h2>
+    <p class="lead lead--cream" data-reveal>Confírmanos si vienes y si te acompaña alguien.</p>
 
-    <form class="card" id="rsvpForm" novalidate>
+    <form class="card" id="rsvpForm" novalidate data-reveal>
       <div class="field">
         <label for="f-name">Nombre y apellidos</label>
         <input id="f-name" name="nombre" autocomplete="name" enterkeyhint="next" required>
@@ -552,7 +489,6 @@
         <label for="f-email">Email</label>
         <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" enterkeyhint="next" required>
       </div>
-
       <fieldset class="field">
         <legend>¿Podrás venir?</legend>
         <div class="choice">
@@ -562,7 +498,6 @@
           <label for="f-no">No podré ir</label>
         </div>
       </fieldset>
-
       <div class="js-attending">
         <fieldset class="field">
           <legend>¿Vienes con acompañante?</legend>
@@ -595,66 +530,60 @@
           <input id="f-song" name="cancion" autocomplete="off">
         </div>
       </div>
-
       <div class="field">
         <label for="f-msg">Una nota para nosotros</label>
         <textarea id="f-msg" name="mensaje" rows="3"></textarea>
       </div>
-
       <p class="form-error" id="formError" role="alert" hidden></p>
-      <button class="btn btn--maroon btn--block" type="submit" id="submitBtn">Enviar respuesta</button>
+      <button class="btn" type="submit" id="submitBtn">Enviar respuesta</button>
       <div class="thanks" id="thanks" hidden>
         <p class="thanks__big">¡Gracias!</p>
         <p class="thanks__msg" id="thanksMsg">Tenemos tu respuesta.</p>
       </div>
     </form>
   </div>
-  <div class="garden" aria-hidden="true">
-    <img width="295" height="156" class="cactus-agave" src="assets/img/cactus-agave.webp" alt="" loading="lazy">
-  </div>
+  <img width="460" height="258" class="rsvp__kiss" src="assets/img/peces-beso.webp" alt="" loading="lazy" data-kiss>
 </section>
 
-<!-- ============ CONTACTO ============ -->
-<footer class="band band--forest contact" id="contacto">
-  <div class="wrap contact__inner">
-    <h2 class="display display--light">Let's stay in touch</h2>
-    <p class="contact__lead">¿Dudas? Escríbenos o mándanos un WhatsApp.</p>
-
+<!-- ============ 11. CONTACTO ============ -->
+<footer class="contact" id="contacto">
+  <div class="stage">
+    <h2 class="h2 h2--cream" data-reveal>Let's stay<br><em>in touch</em></h2>
+    <p class="lead lead--cream" data-reveal>¿Dudas? Escríbenos o mándanos un WhatsApp.</p>
     <div class="people">
-      <article class="person">
+      <article class="person" data-reveal>
         <h3 class="person__name">Camila</h3>
-        <p class="person__role mono">La novia</p>
+        <p class="person__role">La novia</p>
         <ul class="person__lines">
-          <li><a class="wa" href="https://wa.me/34697275060" target="_blank" rel="noopener"><span>+34 697 27 50 60</span><span class="wa__tag mono">WhatsApp</span></a></li>
-          <li><a class="wa" href="https://wa.me/525527757894" target="_blank" rel="noopener"><span>+52 55 2775 7894</span><span class="wa__tag mono">WhatsApp</span></a></li>
+          <li><a class="wa" href="https://wa.me/34697275060" target="_blank" rel="noopener"><span>+34 697 27 50 60</span><span class="wa__tag">WhatsApp</span></a></li>
+          <li><a class="wa" href="https://wa.me/525527757894" target="_blank" rel="noopener"><span>+52 55 2775 7894</span><span class="wa__tag">WhatsApp</span></a></li>
           <li class="mail"><span class="person__email copy-src">camilaescalanteh9@gmail.com</span><button class="copy-btn copy-btn--mini copy-btn--light" type="button" data-copy="camilaescalanteh9@gmail.com" data-copy-label="Copiar">Copiar</button></li>
         </ul>
       </article>
-      <article class="person">
+      <article class="person" data-reveal>
         <h3 class="person__name">Jorge</h3>
-        <p class="person__role mono">El novio</p>
+        <p class="person__role">El novio</p>
         <ul class="person__lines">
-          <li><a class="wa" href="https://wa.me/34675496404" target="_blank" rel="noopener"><span>+34 675 49 64 04</span><span class="wa__tag mono">WhatsApp</span></a></li>
+          <li><a class="wa" href="https://wa.me/34675496404" target="_blank" rel="noopener"><span>+34 675 49 64 04</span><span class="wa__tag">WhatsApp</span></a></li>
           <li class="mail"><span class="person__email copy-src">jorge.ghs@outlook.com</span><button class="copy-btn copy-btn--mini copy-btn--light" type="button" data-copy="jorge.ghs@outlook.com" data-copy-label="Copiar">Copiar</button></li>
         </ul>
       </article>
-      <article class="person">
+      <article class="person" data-reveal>
         <h3 class="person__name">Karimm Barquet</h3>
-        <p class="person__role mono">Wedding planner</p>
-        <ul class="person__lines">
-          <li><span class="person__soon">Contacto muy pronto</span></li>
-        </ul>
+        <p class="person__role">Wedding planner</p>
+        <ul class="person__lines"><li><span class="person__soon">Contacto muy pronto</span></li></ul>
       </article>
     </div>
-
-<div class="flags-pair" aria-hidden="true">
-      <svg class="flag flag--pair-es"><use href="#i-flag-es"/></svg>
-      <img width="124" height="139" class="monogram monogram--small" src="assets/img/monograma.webp" alt="" loading="lazy">
-      <svg class="flag flag--pair-mx"><use href="#i-flag-mx"/></svg>
+    <div class="sign" data-reveal>
+      <svg class="flag"><use href="#i-flag-es"/></svg>
+      <img width="277" height="353" class="sign__seal" src="assets/img/sello-cj.webp" alt="" loading="lazy">
+      <svg class="flag"><use href="#i-flag-mx"/></svg>
     </div>
-    <p class="mono contact__sign">Camila &amp; Jorge · 06.11.2027 · Hacienda San Antonio Hool</p>
+    <p class="contact__sign">Camila &amp; Jorge · 06.11.2027 · Hacienda San Antonio Hool</p>
   </div>
-  <img width="258" height="335" class="maya-dog" src="assets/img/perro-maya.webp" alt="" loading="lazy">
+  <div class="contact__rabbits" aria-hidden="true">
+    <img width="368" height="159" class="rabbit rabbit--c" src="assets/img/conejo-noche.webp" alt="" loading="lazy">
+  </div>
 </footer>
 
 </main>
